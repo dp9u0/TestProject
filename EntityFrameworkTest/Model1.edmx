@@ -17,9 +17,9 @@
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Entity1Set" EntityType="Model1.Entity1" />
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Entity1Set" EntityType="Model.Entity1" />
         </EntityContainer>
         <EntityType Name="Entity1">
           <Key>
@@ -32,9 +32,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="ModelContainer">
     <EntitySetMapping Name="Entity1Set">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Entity1)">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Entity1)">
         <MappingFragment StoreEntitySet="Entity1Set">
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

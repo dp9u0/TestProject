@@ -13,10 +13,10 @@ namespace EntityFrameworkTest
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class ModelContainer : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public ModelContainer()
+            : base("name=ModelContainer")
         {
         }
     
