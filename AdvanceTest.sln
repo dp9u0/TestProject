@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitLearn", "EmitLearn\EmitLearn.csproj", "{B1610A43-9A4E-4C74-A293-7171952B6F94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeDescriptionProviderDemo", "TypeDescriptionProviderDemo\TypeDescriptionProviderDemo.csproj", "{74790AE7-4D95-4515-A02E-C69B44575FAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1610A43-9A4E-4C74-A293-7171952B6F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1610A43-9A4E-4C74-A293-7171952B6F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1610A43-9A4E-4C74-A293-7171952B6F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1610A43-9A4E-4C74-A293-7171952B6F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74790AE7-4D95-4515-A02E-C69B44575FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74790AE7-4D95-4515-A02E-C69B44575FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74790AE7-4D95-4515-A02E-C69B44575FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74790AE7-4D95-4515-A02E-C69B44575FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDemo", "AsyncDemo\AsyncDemo.csproj", "{4C30D9DA-6A23-4CB4-94E9-681AEA6231EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YieldReturnDemo", "YieldReturnDemo\YieldReturnDemo.csproj", "{964D9BA4-CE69-4CB2-90F9-D4FD07E0C794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeekRefreenceDemo", "WeekRefreenceDemo\WeekRefreenceDemo.csproj", "{36FA70FF-41B8-47ED-8CC8-DB31B5758245}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C30D9DA-6A23-4CB4-94E9-681AEA6231EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C30D9DA-6A23-4CB4-94E9-681AEA6231EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C30D9DA-6A23-4CB4-94E9-681AEA6231EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C30D9DA-6A23-4CB4-94E9-681AEA6231EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964D9BA4-CE69-4CB2-90F9-D4FD07E0C794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964D9BA4-CE69-4CB2-90F9-D4FD07E0C794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964D9BA4-CE69-4CB2-90F9-D4FD07E0C794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964D9BA4-CE69-4CB2-90F9-D4FD07E0C794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36FA70FF-41B8-47ED-8CC8-DB31B5758245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FA70FF-41B8-47ED-8CC8-DB31B5758245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FA70FF-41B8-47ED-8CC8-DB31B5758245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FA70FF-41B8-47ED-8CC8-DB31B5758245}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
