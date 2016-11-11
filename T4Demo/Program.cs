@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace T4Demo {
     class Program {
         static void Main(string[] args) {
+
         }
     }
 }
