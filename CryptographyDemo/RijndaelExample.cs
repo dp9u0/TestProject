@@ -7,8 +7,9 @@ namespace CryptographyDemo {
 
         public static void Run() {
             try {
+                Console.WriteLine("================================================");
 
-                string original = "Here is some data to encrypt!";
+                string original = "Here is some data to encrypt!(RijndaelExample)";
 
                 // Create a new instance of the RijndaelManaged
                 // class.  This generates a new key and initialization 
@@ -24,8 +25,9 @@ namespace CryptographyDemo {
                     string roundtrip = RijndaelExample.DecryptStringFromBytes(encrypted, myRijndael.Key, myRijndael.IV);
 
                     //Display the original data and the decrypted data.
-                    Console.WriteLine("Original:   {0}", original);
-                    Console.WriteLine("Round Trip: {0}", roundtrip);
+                    Console.WriteLine("Original:\n{0}", original);
+                    Console.WriteLine("Encrypted:\n{0}", Convert.ToBase64String(encrypted));
+                    Console.WriteLine("Decrypted:\n{0}", roundtrip);
                 }
 
             } catch (Exception e) {

@@ -4,7 +4,9 @@ namespace CryptographyDemo {
 
     public static class Program {
         public static void Main() {
+            Test1();
             Test2();
+            Test3();
         }
 
 
@@ -13,18 +15,11 @@ namespace CryptographyDemo {
         }
 
         private static void Test2() {
-            Cryptographer cryptographer1 = new Cryptographer();
-            Cryptographer cryptographer2 = new Cryptographer();
-            var source = "hello world";
-            var strencrypto= cryptographer1.Encrypto(source);
-            var strdecrypto = cryptographer2.Decrypto(strencrypto);
+            Cryptographer.Run();
+        }
 
-            cryptographer1.Dispose();
-            cryptographer2.Dispose();
-
-            Console.WriteLine(source);
-            Console.WriteLine(strencrypto);
-            Console.WriteLine(strdecrypto);
+        private static void Test3() {
+            RSAExample.Run();
         }
     }
    

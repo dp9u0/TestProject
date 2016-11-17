@@ -7,6 +7,21 @@ namespace CryptographyDemo {
 
     public sealed class Cryptographer : IDisposable {
 
+        public static void Run() {
+            Console.WriteLine("================================================");
+            Cryptographer cryptographer1 = new Cryptographer();
+            Cryptographer cryptographer2 = new Cryptographer();
+            var source = "Here is some data to encrypt!(MyCryptographerWithRijndaelManaged)";
+            var strencrypto = cryptographer1.Encrypto(source);
+            var strdecrypto = cryptographer2.Decrypto(strencrypto);
+
+            cryptographer1.Dispose();
+            cryptographer2.Dispose();
+
+            Console.WriteLine("Original:\n{0}", source);
+            Console.WriteLine("Encrypted:\n{0}", strencrypto);
+            Console.WriteLine("Decrypted:\n{0}", strdecrypto);
+        }
         private SymmetricAlgorithm _mobjCryptoService;
 
         private string _key;
