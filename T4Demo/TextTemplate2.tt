@@ -1,0 +1,35 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="$(SolutionDir)\Export\T4Test.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="T4Test" #>
+<#@ output extension=".cs" #>
+<#
+    List<string> classes= new List<string>();
+
+	classes.Add("Dog");
+	classes.Add("Man");
+#>
+namespace T4Demo {
+using System;
+//<#= Utils.Test() #>
+<# foreach(string cls in classes){ #>
+public partial class <#= cls #>{
+	public void Play(){
+		Console.WriteLine("Hello ,this is "+Name);
+	}
+}
+<# } #>
+}
+<# for(int i=0;i<Square(classes.Count);i++){ #>
+<#@ include file=".\Test.cs" #>
+<# }#>
+<#+ 
+private int Square(int i)  
+{  
+    return i*i;  
+}  
+#>
