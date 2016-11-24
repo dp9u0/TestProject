@@ -1,0 +1,65 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+
+<#@include file="$(ProjectDir)\Manager.ttinclude"#> 
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+
+<# manager.StartHeader(); #>
+using System;
+using System.Collections.Generic;
+namespace T4Demo2
+{   
+<# manager.EndBlock(); #>
+
+<#        
+    string connectionString= "server=localhost;database=EFTest;uid=sa;pwd=238173;";        
+    SqlConnection conn = new SqlConnection(connectionString);
+    conn.Open();
+    
+    string selectQuery ="SET FMTONLY ON; select * from @tableName; SET FMTONLY OFF;";
+    SqlCommand command = new SqlCommand(selectQuery,conn);
+    SqlDataAdapter ad = new SqlDataAdapter(command);
+    System.Data.DataSet ds = new DataSet(); 
+    System.Data.DataTable schema = conn.GetSchema("Tables");
+
+    foreach(System.Data.DataRow row in schema.Rows)
+    {    
+        ds.Tables.Clear();
+        string tb_name = row["TABLE_NAME"].ToString();        
+        command.CommandText = selectQuery.Replace("@tableName",row["TABLE_NAME"].ToString());
+        ad.FillSchema(ds,SchemaType.Mapped,tb_name);  
+        manager.StartNewFile(tb_name+".cs");
+#>
+    /// <summary>
+    /// 实体-<#=tb_name#> 
+    /// </summary>
+    public partial class <#=tb_name#>    
+    {    
+        <#
+        PushIndent("          ");
+        foreach (DataColumn dc in ds.Tables[0].Columns) 
+        {
+            WriteLine("public " + dc.DataType.Name + (dc.AllowDBNull && dc.DataType.Name.ToLower() != "string" ? "? ": " ") + dc.ColumnName + " { get; set; }");
+        }
+        PopIndent();
+        #>
+    } 
+<#
+        manager.EndBlock();    
+    }            
+    conn.Close();  
+#>
+
+
+
+<# manager.StartFooter(); #>
+}
+<# manager.EndBlock(); #>
+
+<# manager.Process(true); #>
