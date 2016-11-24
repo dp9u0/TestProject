@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="EF6UtilityCS.ttinclude" />
     <None Include="Manager.ttinclude" />
     <None Include="packages.config" />
   </ItemGroup>
