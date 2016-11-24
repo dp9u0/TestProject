@@ -50,12 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBCCIndResult.cs">
+      <DependentUpon>DBToEntiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBCCPageResult.cs">
+      <DependentUpon>DBToEntiry.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBToEntiry.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBToEntiry.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity1Set.cs">
+    <Compile Include="Employee001.cs">
       <DependentUpon>DBToEntiry.tt</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />

@@ -11,6 +11,8 @@
 <# var manager = Manager.Create(Host, GenerationEnvironment); #>
 
 <# manager.StartHeader(); #>
+//Generate By Tools
+#region Code
 using System;
 using System.Collections.Generic;
 namespace T4Demo2
@@ -18,11 +20,11 @@ namespace T4Demo2
 <# manager.EndBlock(); #>
 
 <#        
-    string connectionString= "server=localhost;database=EFTest;uid=sa;pwd=238173;";        
+    string connectionString= "server=localhost;database=IndexDB;uid=sa;pwd=238173;";        
     SqlConnection conn = new SqlConnection(connectionString);
     conn.Open();
     
-    string selectQuery ="SET FMTONLY ON; select * from @tableName; SET FMTONLY OFF;";
+    string selectQuery ="SET FMTONLY ON; select top 1 * from @tableName; SET FMTONLY OFF;";
     SqlCommand command = new SqlCommand(selectQuery,conn);
     SqlDataAdapter ad = new SqlDataAdapter(command);
     System.Data.DataSet ds = new DataSet(); 
@@ -45,7 +47,11 @@ namespace T4Demo2
         PushIndent("          ");
         foreach (DataColumn dc in ds.Tables[0].Columns) 
         {
+            WriteLine("/// <summary>");
+            WriteLine("/// "+dc.Caption);
+            WriteLine("/// <summary>");
             WriteLine("public " + dc.DataType.Name + (dc.AllowDBNull && dc.DataType.Name.ToLower() != "string" ? "? ": " ") + dc.ColumnName + " { get; set; }");
+            WriteLine("");
         }
         PopIndent();
         #>
@@ -60,6 +66,7 @@ namespace T4Demo2
 
 <# manager.StartFooter(); #>
 }
+#endregion
 <# manager.EndBlock(); #>
 
 <# manager.Process(true); #>
