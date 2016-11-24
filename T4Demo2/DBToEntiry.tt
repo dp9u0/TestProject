@@ -8,8 +8,10 @@
 <#@ import namespace="System.Linq" #>
 
 <#@include file="$(ProjectDir)\Manager.ttinclude"#> 
-<# var manager = Manager.Create(Host, GenerationEnvironment); #>
-
+<# 
+//System.Diagnostics.Debugger.Launch(); 
+//System.Diagnostics.Debugger.Break();  
+var manager = Manager.Create(Host, GenerationEnvironment); #>
 <# manager.StartHeader(); #>
 //Generate By Tools
 #region Code
