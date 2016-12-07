@@ -16,6 +16,8 @@ namespace DelegateLambda {
             new Program().Main3();
             Console.WriteLine("-----------------------");
             new Program().Main4();
+            Console.WriteLine("-----------------------");
+            Test2.Test();
             Console.Read();
         }
 
