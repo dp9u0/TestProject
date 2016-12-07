@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExpressionDemo {
+﻿namespace ExpressionDemo {
     class Program {
         static void Main(string[] args) {
+            Test.Test001();
+            Test.Test002();
         }
     }
 }
