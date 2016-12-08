@@ -7,12 +7,13 @@ using System.Linq.Expressions;
 namespace Linq {
     public class Test {
 
-        static IEnumerable<MyModel> enumarable=null;
+        static IEnumerable<MyModel> enumarable = null;
         static IQueryable<MyModel> queryable = null;
 
         public static void Test001() {
+            // see ref Test003() 
             var result = from t in enumarable
-                select t.MyProperty;
+                         select t.MyProperty;
 
         }
 
@@ -23,6 +24,8 @@ namespace Linq {
 
 
         public static void Test002() {
+            // see ref Test004
+            // see ref Test005
             var result2 = from t in queryable
                           select t.MyProperty;
         }
@@ -33,7 +36,8 @@ namespace Linq {
 
         public static void Test005() {
             ParameterExpression parameterExpression = Expression.Parameter(typeof(MyModel), "t");
-            var lambda = Expression.Lambda<Func<MyModel, string>>(Expression.Property(parameterExpression, "MyProperty", parameterExpression));
+            var indexExpression = Expression.Property(parameterExpression, "MyProperty", parameterExpression);
+            var lambda = Expression.Lambda<Func<MyModel, string>>(indexExpression);
             var result = queryable.Select(lambda);
         }
 
@@ -43,6 +47,8 @@ namespace Linq {
 
     public class MyModel {
 
-        public string MyProperty { get; set; }
+        public string MyProperty {
+            get; set;
+        }
     }
 }
