@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="LinqTocnblogs.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-10.2.2">
+  <Role name="LinqTocnblogs">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="linqtocnblogs" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEHxp9dQrac2UQYdTrrOF6icwDQYJKoZIhvcNAQEBBQAEggEANBoKxMa7IRnbDB5UhI3pCa4aU6HxDyFWU9p3L9lYprVcsiCWbAMmw8IYcFxoqG4Se/iZFMMWM7kx768sE+emzsXcURpA8mn4wcW8rTe9mxDYjiDGc37Wf8HpascR1jtJGwGyQ5RB15LhVIYs3+KFQTVloic37OgpSWX5aJ3ZCuRsFCkv7gvbYeI218vVcQ3L27K2YSubwSOgAi4BSwVBlJj/49LdQ1+eYRzZBgjs8VvlSZa4apSKmYO3AuNg5YxulF3Cxz3XGVjLxfYRIVBtLF5wCtTbDUhu++XypQVQ0F3c7KLxpTRgNaC6IOxizReskjj3LoGGJejF7bt0WRlMqjAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHDedgqQjRFIgBDmOhm/mTBj4hauZ2kVghUD" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-01-11T23:59:59.0000000+08:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="CnblogsServiceUrl" value="http://wcf.open.cnblogs.com/blog/sitehome/recent/60" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="D32D0B5D1082EF29D85CC2F9A2C542BE73387577" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
