@@ -10,9 +10,7 @@ using System.Threading;
 #endregion
 
 namespace YieldReturnDemo {
-
     public class MyList {
-
         private static Random rand = new Random(DateTime.Now.Millisecond);
 
         public IEnumerable<string> Get1() {
@@ -49,7 +47,6 @@ namespace YieldReturnDemo {
 
         [CompilerGenerated]
         private sealed class Get1d__0 : IEnumerable<string>, IEnumerable, IEnumerator<string>, IEnumerator, IDisposable {
-
             private int __1__state;
             private string __2__current;
 
@@ -62,6 +59,18 @@ namespace YieldReturnDemo {
             public Get1d__0(int __1__state) {
                 this.__1__state = __1__state;
                 __l__initialThreadId = Thread.CurrentThread.ManagedThreadId;
+            }
+
+            private IEnumerator<string> InternalGetEnumerator() {
+                Get1d__0 Get1d__;
+                if ((Thread.CurrentThread.ManagedThreadId == __l__initialThreadId) && (__1__state == -2)) {
+                    __1__state = 0;
+                    Get1d__ = this;
+                } else {
+                    Get1d__ = new Get1d__0(0);
+                    Get1d__.__4__this = __4__this;
+                }
+                return Get1d__;
             }
 
             #region IEnumerable<string> Members
@@ -81,17 +90,11 @@ namespace YieldReturnDemo {
             #region IEnumerator<string> Members
 
             string IEnumerator<string>.Current {
-                [DebuggerHidden]
-                get {
-                    return __2__current;
-                }
+                [DebuggerHidden] get { return __2__current; }
             }
 
             object IEnumerator.Current {
-                [DebuggerHidden]
-                get {
-                    return __2__current;
-                }
+                [DebuggerHidden] get { return __2__current; }
             }
 
             bool IEnumerator.MoveNext() {
@@ -128,20 +131,6 @@ namespace YieldReturnDemo {
             }
 
             #endregion
-
-            private IEnumerator<string> InternalGetEnumerator() {
-                Get1d__0 Get1d__;
-                if (Thread.CurrentThread.ManagedThreadId == __l__initialThreadId && __1__state == -2) {
-                    __1__state = 0;
-                    Get1d__ = this;
-                }
-                else {
-                    Get1d__ = new Get1d__0(0);
-                    Get1d__.__4__this = __4__this;
-                }
-                return Get1d__;
-            }
-
         }
 
         #endregion
@@ -150,7 +139,6 @@ namespace YieldReturnDemo {
 
         [CompilerGenerated]
         private sealed class Get2d__4 : IEnumerable<string>, IEnumerable, IEnumerator<string>, IEnumerator, IDisposable {
-
             private int __1__state;
             private string __2__current;
 
@@ -166,6 +154,18 @@ namespace YieldReturnDemo {
             public Get2d__4(int __1__state) {
                 this.__1__state = __1__state;
                 __l__initialThreadId = Thread.CurrentThread.ManagedThreadId;
+            }
+
+            private IEnumerator<string> InternalGetEnumerator() {
+                Get2d__4 Get2d__;
+                if ((Thread.CurrentThread.ManagedThreadId == __l__initialThreadId) && (__1__state == -2)) {
+                    __1__state = 0;
+                    Get2d__ = this;
+                } else {
+                    Get2d__ = new Get2d__4(0);
+                    Get2d__.__4__this = __4__this;
+                }
+                return Get2d__;
             }
 
             #region IEnumerable<string> Members
@@ -185,17 +185,11 @@ namespace YieldReturnDemo {
             #region IEnumerator<string> Members
 
             string IEnumerator<string>.Current {
-                [DebuggerHidden]
-                get {
-                    return __2__current;
-                }
+                [DebuggerHidden] get { return __2__current; }
             }
 
             object IEnumerator.Current {
-                [DebuggerHidden]
-                get {
-                    return __2__current;
-                }
+                [DebuggerHidden] get { return __2__current; }
             }
 
             bool IEnumerator.MoveNext() {
@@ -216,12 +210,7 @@ namespace YieldReturnDemo {
                 if (i5__6 < 15) {
                     test25__7 = rand.Next().ToString();
                     test15__5 += test25__7;
-                    __2__current = string.Concat(new object[] {
-                        "Test_",
-                        i5__6,
-                        "_",
-                        test25__7
-                    });
+                    __2__current = string.Concat("Test_", i5__6, "_", test25__7);
                     __1__state = 1;
                     result = true;
                     return result;
@@ -240,20 +229,6 @@ namespace YieldReturnDemo {
             }
 
             #endregion
-
-            private IEnumerator<string> InternalGetEnumerator() {
-                Get2d__4 Get2d__;
-                if (Thread.CurrentThread.ManagedThreadId == __l__initialThreadId && __1__state == -2) {
-                    __1__state = 0;
-                    Get2d__ = this;
-                }
-                else {
-                    Get2d__ = new Get2d__4(0);
-                    Get2d__.__4__this = __4__this;
-                }
-                return Get2d__;
-            }
-
         }
 
         #endregion
@@ -262,7 +237,6 @@ namespace YieldReturnDemo {
 
         [CompilerGenerated]
         private sealed class Get3d__a : IEnumerable<string>, IEnumerable, IEnumerator<string>, IEnumerator, IDisposable {
-
             private int _1__state;
             private string _2__current;
 
@@ -273,6 +247,18 @@ namespace YieldReturnDemo {
             public Get3d__a(int _1__state) {
                 this._1__state = _1__state;
                 _l__initialThreadId = Thread.CurrentThread.ManagedThreadId;
+            }
+
+            private IEnumerator<string> InternalGetEnumerator() {
+                Get3d__a Get3d__a;
+                if ((Thread.CurrentThread.ManagedThreadId == _l__initialThreadId) && (_1__state == -2)) {
+                    _1__state = 0;
+                    Get3d__a = this;
+                } else {
+                    Get3d__a = new Get3d__a(0);
+                    Get3d__a._4__this = _4__this;
+                }
+                return Get3d__a;
             }
 
             #region IEnumerable<string> Members
@@ -292,17 +278,11 @@ namespace YieldReturnDemo {
             #region IEnumerator<string> Members
 
             string IEnumerator<string>.Current {
-                [DebuggerHidden]
-                get {
-                    return _2__current;
-                }
+                [DebuggerHidden] get { return _2__current; }
             }
 
             object IEnumerator.Current {
-                [DebuggerHidden]
-                get {
-                    return _2__current;
-                }
+                [DebuggerHidden] get { return _2__current; }
             }
 
             bool IEnumerator.MoveNext() {
@@ -331,23 +311,8 @@ namespace YieldReturnDemo {
             }
 
             #endregion
-
-            private IEnumerator<string> InternalGetEnumerator() {
-                Get3d__a Get3d__a;
-                if (Thread.CurrentThread.ManagedThreadId == _l__initialThreadId && _1__state == -2) {
-                    _1__state = 0;
-                    Get3d__a = this;
-                }
-                else {
-                    Get3d__a = new Get3d__a(0);
-                    Get3d__a._4__this = _4__this;
-                }
-                return Get3d__a;
-            }
-
         }
 
         #endregion
     }
-
 }

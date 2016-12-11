@@ -6,9 +6,7 @@ using System.Windows.Forms;
 #endregion
 
 namespace TypeDescriptionProviderDemo {
-
     public partial class MainForm : Form {
-
         public MainForm() {
             InitializeComponent();
         }
@@ -20,7 +18,5 @@ namespace TypeDescriptionProviderDemo {
         private void listBox_SelectedIndexChanged(object sender, EventArgs e) {
             propertyGrid.SelectedObject = listBox.SelectedItem;
         }
-
     }
-
 }

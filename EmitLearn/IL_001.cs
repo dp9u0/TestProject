@@ -7,14 +7,10 @@ using System.Reflection.Emit;
 #endregion
 
 namespace EmitLearn {
-
     /// <summary>
-    /// 
     /// </summary>
     public class IL_001 {
-
         /// <summary>
-        /// 
         /// </summary>
         public static void Run() {
             //定义Assembly
@@ -28,7 +24,7 @@ namespace EmitLearn {
             MethodBuilder methodBuilder = typeBuilder.DefineMethod("Begin",
                 MethodAttributes.Public | MethodAttributes.Static, null,
                 null
-                );
+            );
             //写入静态方法的IL
             ILGenerator ilGenerator = methodBuilder.GetILGenerator();
             Emit(ilGenerator);
@@ -52,25 +48,23 @@ namespace EmitLearn {
             il.Emit(OpCodes.Ldloc_0);
             il.Emit(OpCodes.Ldloc_0);
             il.Emit(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new[] {
-                typeof (int)
+                typeof(int)
             }));
             //add
             il.Emit(OpCodes.Add);
             //push string 
-            il.Emit(OpCodes.Ldstr,"1+2+3=");
+            il.Emit(OpCodes.Ldstr, "1+2+3=");
             //call Console.Write(string)
             il.Emit(OpCodes.Call, typeof(Console).GetMethod("Write", new[] {
-                typeof (string)
+                typeof(string)
             }));
             //call Console.WriteLine(int)
-            il.Emit(OpCodes.Call, typeof (Console).GetMethod("WriteLine", new[] {
-                typeof (int)
+            il.Emit(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new[] {
+                typeof(int)
             }));
             //call Console.ReadLine()
-           il.Emit(OpCodes.Call, typeof (Console).GetMethod("ReadLine"));
-           il.Emit(OpCodes.Ret);
+            il.Emit(OpCodes.Call, typeof(Console).GetMethod("ReadLine"));
+            il.Emit(OpCodes.Ret);
         }
-
     }
-
 }

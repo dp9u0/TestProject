@@ -7,13 +7,10 @@ using System.Reflection.Emit;
 #endregion
 
 namespace EmitLearn {
-
-
     /// <summary>
-    /// Ctor
+    ///     Ctor
     /// </summary>
     public class IL_002 {
-
         public static void Run() {
             //1.构建程序集
             AssemblyName asmName = new AssemblyName("Test2");
@@ -22,7 +19,7 @@ namespace EmitLearn {
 
             //2.创建模块 
             //ModuleBuilder mdlBldr = asmBuilder.DefineDynamicModule("Test2");
-            ModuleBuilder mdlBldr = asmBuilder.DefineDynamicModule("Test2","Test2.dll");
+            ModuleBuilder mdlBldr = asmBuilder.DefineDynamicModule("Test2", "Test2.dll");
 
             TypeBuilder typeBuilder = mdlBldr.DefineType("Test2", TypeAttributes.Class | TypeAttributes.Public);
 
@@ -40,7 +37,7 @@ namespace EmitLearn {
             MethodBuilder setMethod = typeBuilder.DefineMethod("setTest",
                 MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig, typeof(void),
                 new[] {
-                    typeof (string)
+                    typeof(string)
                 });
 
             EmitSetMethodBuilderIL(setMethod, fieldBiulder);
@@ -51,7 +48,7 @@ namespace EmitLearn {
 
             ConstructorBuilder ctor = typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard,
                 new[] {
-                    typeof (string)
+                    typeof(string)
                 });
 
             ILGenerator ctorIl = ctor.GetILGenerator();
@@ -60,9 +57,7 @@ namespace EmitLearn {
             ctorIl.Emit(OpCodes.Stfld, fieldBiulder);
             ctorIl.Emit(OpCodes.Ret);
             Type type = typeBuilder.CreateType();
-            Object ob = Activator.CreateInstance(type, new object[] {
-                "Test1234"
-            });
+            object ob = Activator.CreateInstance(type, "Test1234");
 
             Console.WriteLine(type.GetProperty("Test", typeof(string)).GetValue(ob, null));
             type.GetProperty("Test", typeof(string)).SetValue(ob, "tttttttttttt", null);
@@ -74,35 +69,28 @@ namespace EmitLearn {
         private static void EmitGetMethodBuilderIL(MethodBuilder getMethodBuilder, FieldBuilder fieldBuilder) {
             //ILGenerator
             ILGenerator getAIL = getMethodBuilder.GetILGenerator();
-            getAIL.Emit(OpCodes.Ldarg_0);//this
-            getAIL.Emit(OpCodes.Ldfld, fieldBuilder);//numA
-            getAIL.Emit(OpCodes.Ret);//return numA
+            getAIL.Emit(OpCodes.Ldarg_0); //this
+            getAIL.Emit(OpCodes.Ldfld, fieldBuilder); //numA
+            getAIL.Emit(OpCodes.Ret); //return numA
         }
 
         private static void EmitSetMethodBuilderIL(MethodBuilder setMethodBuilder, FieldBuilder fieldBuilder) {
             ILGenerator setAIL = setMethodBuilder.GetILGenerator();
-            setAIL.Emit(OpCodes.Ldarg_0);//this
-            setAIL.Emit(OpCodes.Ldarg_1);//value
-            setAIL.Emit(OpCodes.Stfld, fieldBuilder);//numA = value;
-            setAIL.Emit(OpCodes.Ret);//return;
+            setAIL.Emit(OpCodes.Ldarg_0); //this
+            setAIL.Emit(OpCodes.Ldarg_1); //value
+            setAIL.Emit(OpCodes.Stfld, fieldBuilder); //numA = value;
+            setAIL.Emit(OpCodes.Ret); //return;
         }
 
 
         public static void Test() {
-
             Program2 prog2 = new Program2();
-
         }
 
         #region Nested type: MyStruct
 
         private struct MyStruct {
-
-            public int Age {
-                get;
-                set;
-            }
-
+            public int Age { get; set; }
         }
 
         #endregion
@@ -110,17 +98,9 @@ namespace EmitLearn {
         #region Nested type: Person2
 
         public class Person2 {
+            public string Name { get; set; }
 
-            public string Name {
-                get;
-                set;
-            }
-
-            public int Age {
-                get;
-                set;
-            }
-
+            public int Age { get; set; }
         }
 
         #endregion
@@ -128,7 +108,6 @@ namespace EmitLearn {
         #region Nested type: Program2
 
         private class Program2 {
-
             private double dou = 3.14;
 
             private Person2 person = new Person2 {
@@ -140,7 +119,7 @@ namespace EmitLearn {
 
             private Random rand = new Random(DateTime.Now.Millisecond);
 
-            private MyStruct st = new MyStruct() {
+            private MyStruct st = new MyStruct {
                 Age = 12434
             };
 
@@ -152,12 +131,12 @@ namespace EmitLearn {
                 };
                 pro = "pro";
                 rand = new Random(DateTime.Now.Millisecond);
-                st = new MyStruct() {
+                st = new MyStruct {
                     Age = 12434
                 };
             }
 
-            public Program2(String name) {
+            public Program2(string name) {
                 dou = 3.14;
                 person = new Person2 {
                     Name = name,
@@ -165,15 +144,12 @@ namespace EmitLearn {
                 };
                 pro = "pro" + name;
                 rand = new Random(DateTime.Now.Millisecond);
-                st = new MyStruct() {
+                st = new MyStruct {
                     Age = 12434
                 };
             }
-
         }
 
         #endregion
     }
-
 }
-

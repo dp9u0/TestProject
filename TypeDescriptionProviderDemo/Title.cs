@@ -1,50 +1,37 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 #endregion
 
 namespace TypeDescriptionProviderDemo {
-
-    [TypeDescriptionProvider(typeof (TitleTypeDescriptionProvider))]
+    [TypeDescriptionProvider(typeof(TitleTypeDescriptionProvider))]
     internal sealed class Title {
+        private Dictionary<string, object> customFieldValues = new Dictionary<string, object>();
 
-        private Dictionary<String, Object> customFieldValues = new Dictionary<String, Object>();
-
-        public Title(String name, TitleCategory category) {
+        public Title(string name, TitleCategory category) {
             Name = name;
             Category = category;
         }
 
-        public String Name {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
         [Browsable(false)]
-        public TitleCategory Category {
-            get;
-            private set;
-        }
+        public TitleCategory Category { get; private set; }
 
-        public Object this[String fieldName] {
+        public object this[string fieldName] {
             get {
-                Object value = null;
+                object value = null;
                 customFieldValues.TryGetValue(fieldName, out value);
                 return value;
             }
 
-            set {
-                customFieldValues[fieldName] = value;
-            }
+            set { customFieldValues[fieldName] = value; }
         }
 
         public override string ToString() {
             return Name;
         }
-
     }
-
 }

@@ -5,24 +5,14 @@ using System;
 #endregion
 
 namespace TypeDescriptionProviderDemo {
-
     internal class CustomField {
-
-        public CustomField(String name, Type dataType) {
+        public CustomField(string name, Type dataType) {
             Name = name;
             DataType = dataType;
         }
 
-        public String Name {
-            get;
-            private set;
-        }
+        public string Name { get; private set; }
 
-        public Type DataType {
-            get;
-            private set;
-        }
-
+        public Type DataType { get; private set; }
     }
-
 }

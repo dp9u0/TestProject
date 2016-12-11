@@ -1,8 +1,11 @@
-namespace CodeFirstExistingDatabaseSample {
-    using System.ComponentModel.DataAnnotations;
+#region
 
-    public partial class Posts
-    {
+using System.ComponentModel.DataAnnotations;
+
+#endregion
+
+namespace CodeFirstExistingDatabaseSample {
+    public class Posts {
         [Key]
         public int PostId { get; set; }
 

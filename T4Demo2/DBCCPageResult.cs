@@ -1,34 +1,30 @@
-//Generate By Tools
 #region Code
-using System;
-using System.Collections.Generic;
-namespace T4Demo2
-{   
+
+namespace T4Demo2 {
     /// <summary>
-    /// 实体-DBCCPageResult 
+    ///     实体-DBCCPageResult
     /// </summary>
-    public partial class DBCCPageResult    
-    {    
+    public class DBCCPageResult {
         /// <summary>
-          /// ParentObject
-          /// <summary>
-          public String ParentObject { get; set; }
+        ///     ParentObject
+        ///     <summary>
+        public string ParentObject { get; set; }
 
-          /// <summary>
-          /// Object
-          /// <summary>
-          public String Object { get; set; }
+        /// <summary>
+        ///     Object
+        ///     <summary>
+        public string Object { get; set; }
 
-          /// <summary>
-          /// Field
-          /// <summary>
-          public String Field { get; set; }
+        /// <summary>
+        ///     Field
+        ///     <summary>
+        public string Field { get; set; }
 
-          /// <summary>
-          /// Value
-          /// <summary>
-          public String Value { get; set; }
-
-    } 
+        /// <summary>
+        ///     Value
+        ///     <summary>
+        public string Value { get; set; }
+    }
 }
+
 #endregion

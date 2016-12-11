@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 #endregion
 
 namespace Demo {
-
-    class Program {
-
-        static void Main(string[] args) {
-
+    internal class Program {
+        private static void Main(string[] args) {
             Console.WriteLine("测试1开始:{0}", Thread.CurrentThread.ManagedThreadId);
-            SyncMethodCallSyncWork(0,false);
+            SyncMethodCallSyncWork(0, false);
             Console.WriteLine("测试1结束:{0}", Thread.CurrentThread.ManagedThreadId);
 
 
@@ -28,11 +25,10 @@ namespace Demo {
             //这样的调用方式是没法等待的
             //开始任务后 直接开始执行后面的代码
             //AsyncMethod 依旧在执行 不过当前线程不会等待执行完成
-            var task= AsyncMethodCallAsyncWork(0,false);
+            var task = AsyncMethodCallAsyncWork(0, false);
             Console.WriteLine("测试3结束(其实还没结束):{0}", Thread.CurrentThread.ManagedThreadId);
 
             while (!task.IsCompleted) {
-
             }
             Console.WriteLine("异常测试:{0}", Thread.CurrentThread.ManagedThreadId);
 
@@ -52,16 +48,15 @@ namespace Demo {
             //这样的调用方式是没法等待的
             //开始任务后 直接开始执行后面的代码
             //AsyncMethod 依旧在执行 不过当前线程不会等待执行完成
-            var task2= AsyncMethodCallAsyncWork(0, true);
+            var task2 = AsyncMethodCallAsyncWork(0, true);
             Console.WriteLine("测试6结束(其实还没结束):{0}", Thread.CurrentThread.ManagedThreadId);
 
             Console.ReadKey();
         }
 
 
-
         // 同步操作
-        private static void SyncMethodCallSyncWork(int input,bool throwEx) {
+        private static void SyncMethodCallSyncWork(int input, bool throwEx) {
             Console.WriteLine("进入同步操作:{0}", Thread.CurrentThread.ManagedThreadId);
             try {
                 var result = Work(input, throwEx);
@@ -81,7 +76,7 @@ namespace Demo {
                 var task = AsyncWork(input, throwEx);
                 var result = 0;
                 //取Result时 会阻塞 会等待任务执行完成
-                result = task.Result;                
+                result = task.Result;
                 // 下面是同步方法
                 //var result = Work(input);
                 Console.WriteLine("最终结果{0}:{1}", result, Thread.CurrentThread.ManagedThreadId);
@@ -120,7 +115,7 @@ namespace Demo {
             for (int i = 0; i < 5; ++i) {
                 //延迟100ms 后执行下面的任务
                 await Task.Delay(100);
-                if (i == 4&& throwEx) {
+                if ((i == 4) && throwEx) {
                     throw new OperationCanceledException("Operation Canceled!!!");
                 }
                 Console.WriteLine("耗时操作{0}:{1}", i, Thread.CurrentThread.ManagedThreadId);
@@ -136,7 +131,7 @@ namespace Demo {
             Console.WriteLine("进入同步工作:{0}", Thread.CurrentThread.ManagedThreadId);
             for (int i = 0; i < 5; ++i) {
                 Task.Delay(100);
-                if (i == 4 && throwEx) {
+                if ((i == 4) && throwEx) {
                     throw new OperationCanceledException("Operation Canceled!!!");
                 }
                 Console.WriteLine("耗时操作{0}:{1}", i, Thread.CurrentThread.ManagedThreadId);
@@ -156,5 +151,4 @@ namespace Demo {
             }
         }
     }
-
 }

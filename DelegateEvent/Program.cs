@@ -1,37 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
+using System;
+
+#endregion
 
 namespace DelegateEvent {
-    class MyClass {
+    internal class MyClass {
         public delegate void CompletedEventHandler();
 
-        public event CompletedEventHandler WorkCompleted;
         public CompletedEventHandler WorkCompletedDelegate;
 
+        public event CompletedEventHandler WorkCompleted;
+
         public void Fire() {
-            if (this.WorkCompleted != null) {
-                this.WorkCompleted();
+            if (WorkCompleted != null) {
+                WorkCompleted();
             }
 
-            if (this.WorkCompletedDelegate != null) {
-                this.WorkCompletedDelegate();
+            if (WorkCompletedDelegate != null) {
+                WorkCompletedDelegate();
             }
         }
     }
-    class Program {
-        static void TestEvent() {
+
+    internal class Program {
+        private static void TestEvent() {
             Console.WriteLine("test event");
         }
 
-        static void TestDelegate() {
+        private static void TestDelegate() {
             Console.WriteLine("test delegate");
         }
 
-        static void Main(string[] args) {
-
+        private static void Main(string[] args) {
             MyClass myObject = new MyClass();
             myObject.WorkCompletedDelegate += TestDelegate;
             myObject.WorkCompleted += TestEvent;

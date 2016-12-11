@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿#region
+
+using System;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+#endregion
 
 namespace WindowsFormsApp {
     public partial class Form1 : Form {
-
-        delegate string InvokeDelegate();
-
         public Form1() {
             InitializeComponent();
         }
@@ -26,10 +20,12 @@ namespace WindowsFormsApp {
                         return Text;
                     }));
                 } else {
-                    Text = "Test:" + DateTime.Now.Ticks.ToString();
+                    Text = "Test:" + DateTime.Now.Ticks;
                 }
             });
             thread.Start();
         }
+
+        private delegate string InvokeDelegate();
     }
 }

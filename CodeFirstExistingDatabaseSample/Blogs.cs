@@ -1,16 +1,15 @@
-namespace CodeFirstExistingDatabaseSample
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+#region
 
-    public partial class Blogs
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Blogs()
-        {
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+#endregion
+
+namespace CodeFirstExistingDatabaseSample {
+    public class Blogs {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage",
+             "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Blogs() {
             Posts = new HashSet<Posts>();
         }
 
@@ -21,7 +20,8 @@ namespace CodeFirstExistingDatabaseSample
 
         public string Url { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage",
+             "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Posts> Posts { get; set; }
     }
 }

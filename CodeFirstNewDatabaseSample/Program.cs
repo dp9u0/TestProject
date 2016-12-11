@@ -3,17 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using System.Linq;
 
 #endregion
 
 namespace CodeFirstNewDatabaseSample {
-
-    class Program {
-
-        static void Main(string[] args) {
-
+    internal class Program {
+        private static void Main(string[] args) {
             using (var db = new BloggingContext()) {
                 // Create and save a new Blog 
                 Console.Write("Enter a name for a new Blog: ");
@@ -27,8 +22,8 @@ namespace CodeFirstNewDatabaseSample {
 
                 // Display all Blogs from the database 
                 var query = from b in db.Blogs
-                            orderby b.Name
-                            select b;
+                    orderby b.Name
+                    select b;
 
                 Console.WriteLine("All blogs in the database:");
                 foreach (var item in query) {
@@ -39,92 +34,45 @@ namespace CodeFirstNewDatabaseSample {
                 Console.ReadKey();
             }
         }
-
     }
 
     public class Blog {
+        public int BlogId { get; set; }
 
-        public int BlogId {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
-        public string Name {
-            get;
-            set;
-        }
+        public virtual List<Post> Posts { get; set; }
 
-        public virtual List<Post> Posts {
-            get;
-            set;
-        }
-
-        public string Url {
-            get;
-            set;
-        }
-
+        public string Url { get; set; }
     }
 
     public class Post {
+        public int PostId { get; set; }
 
-        public int PostId {
-            get;
-            set;
-        }
+        public string Title { get; set; }
 
-        public string Title {
-            get;
-            set;
-        }
+        public string Content { get; set; }
 
-        public string Content {
-            get;
-            set;
-        }
+        public int BlogId { get; set; }
 
-        public int BlogId {
-            get;
-            set;
-        }
-
-        public virtual Blog Blog {
-            get;
-            set;
-        }
-
+        public virtual Blog Blog { get; set; }
     }
 
     public class User {
-
         [Key]
-        public string Username {
-            get;
-            set;
-        }
+        public string Username { get; set; }
 
-        public string DisplayName {
-            get;
-            set;
-        }
-
+        public string DisplayName { get; set; }
     }
 
     public class BloggingContext : DbContext {
-
         public BloggingContext() : base("CodeFirstNewDatabaseSample") {
-
         }
 
-        public DbSet<Blog> Blogs {
-            get;
-            set;
-        }
+        public DbSet<Blog> Blogs { get; set; }
 
-        public DbSet<Post> Posts {
-            get;
-            set;
-        }
+        public DbSet<Post> Posts { get; set; }
+
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
@@ -132,7 +80,5 @@ namespace CodeFirstNewDatabaseSample {
                 .Property(u => u.DisplayName)
                 .HasColumnName("display_name");
         }
-
     }
-
 }

@@ -1,9 +1,6 @@
 ﻿namespace EmitLearn {
-
     public class IL_004 {
-
         public static void Run() {
-
         }
 
         public static void Test(IL_002.Person2 person, int test) {
@@ -40,7 +37,5 @@
 	IL_0033: stloc.s result2
 	IL_0035: ret         
          */
-
     }
-
 }

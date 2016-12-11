@@ -6,9 +6,7 @@ using System.Collections.Generic;
 #endregion
 
 namespace WeekRefreenceDemo {
-
     internal class Program {
-
         public static void Main() {
             const int cacheSize = 5;
             const int LoopTimes = 100;
@@ -21,26 +19,24 @@ namespace WeekRefreenceDemo {
                 int index = r.Next(c.Count);
                 // Access the object by getting a property value.
                 string dataName = c[index].Name;
-                if (index % 3 == 0) {
+                if (index%3 == 0) {
                     Console.WriteLine("GC.Collect()");
                     GC.Collect();
                 }
             }
             // Show results.
-            double regenPercent = c.RegenerationCount / (double)LoopTimes;
+            double regenPercent = c.RegenerationCount/(double) LoopTimes;
             Console.WriteLine("Cache size: {0}, Regenerated: {1:P2}", c.Count, regenPercent);
             Console.ReadKey();
         }
-
     }
 
     public class Cache {
-
         // Dictionary to contain the cache.
         private static Dictionary<int, WeakReference> _cache;
 
         // Track the number of times an object is regenerated.
-        private int regenCount = 0;
+        private int regenCount;
 
         public Cache(int count) {
             _cache = new Dictionary<int, WeakReference>();
@@ -53,16 +49,12 @@ namespace WeekRefreenceDemo {
 
         // Number of items in the cache.
         public int Count {
-            get {
-                return _cache.Count;
-            }
+            get { return _cache.Count; }
         }
 
         // Number of times an object needs to be regenerated.
         public int RegenerationCount {
-            get {
-                return regenCount;
-            }
+            get { return regenCount; }
         }
 
         // Retrieve a data object from the cache.
@@ -82,27 +74,21 @@ namespace WeekRefreenceDemo {
                 return d;
             }
         }
-
     }
 
     // This class creates byte arrays to simulate data.
     public class Data {
-
         private byte[] _data;
         private string _name;
 
         public Data(int size) {
-            _data = new byte[size * 1024];
+            _data = new byte[size*1024];
             _name = "Cache_" + size;
         }
 
         // Simple property.
         public string Name {
-            get {
-                return _name;
-            }
+            get { return _name; }
         }
-
     }
-
 }

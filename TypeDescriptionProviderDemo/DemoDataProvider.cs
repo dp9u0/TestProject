@@ -7,16 +7,14 @@ using System.Linq;
 #endregion
 
 namespace TypeDescriptionProviderDemo {
-
     internal static class DemoDataProvider {
-
         public static ReadOnlyCollection<Title> GetTitles() {
             return new[] {
                 GetBook("C++/CLI in Action", "Nishant Sivakumar", false, 34),
                 GetMovie("Spiderman III", "Sam Raimi", MovieRating.PG13, new TimeSpan(2, 19, 10),
                     new DateTime(2007, 5, 1)),
                 null
-            }.ToList<Title>().AsReadOnly();
+            }.ToList().AsReadOnly();
         }
 
         private static Title GetBook(string name, string author, bool isHardCover, int amazonRank) {
@@ -28,10 +26,10 @@ namespace TypeDescriptionProviderDemo {
         }
 
         private static Title GetMovie(string name,
-                                      string director,
-                                      MovieRating rating,
-                                      TimeSpan duration,
-                                      DateTime releaseDate) {
+            string director,
+            MovieRating rating,
+            TimeSpan duration,
+            DateTime releaseDate) {
             Title title = new Title(name, TitleCategory.Movie);
             title["Director"] = director;
             title["Rating"] = rating;
@@ -39,7 +37,5 @@ namespace TypeDescriptionProviderDemo {
             title["Release Date"] = releaseDate;
             return title;
         }
-
     }
-
 }

@@ -1,7 +1,4 @@
-﻿using System;
-
-namespace CryptographyDemo {
-
+﻿namespace CryptographyDemo {
     public static class Program {
         public static void Main() {
             Test1();
@@ -22,5 +19,4 @@ namespace CryptographyDemo {
             RSAExample.Run();
         }
     }
-   
 }

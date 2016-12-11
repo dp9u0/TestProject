@@ -6,11 +6,9 @@ using System.Windows.Forms;
 #endregion
 
 namespace TypeDescriptionProviderDemo {
-
     internal static class Program {
-
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
         private static void Main() {
@@ -18,7 +16,5 @@ namespace TypeDescriptionProviderDemo {
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-
     }
-
 }

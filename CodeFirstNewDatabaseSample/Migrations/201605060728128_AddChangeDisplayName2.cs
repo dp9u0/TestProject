@@ -1,11 +1,7 @@
 namespace CodeFirstNewDatabaseSample.Migrations {
-    using System;
-    using System.Data.Entity.Migrations;
-
     public partial class AddChangeDisplayName2 : DbMigration {
         public override void Up() {
             RenameColumn("dbo.User", "DisplayName", "display_name");
-
         }
 
         public override void Down() {

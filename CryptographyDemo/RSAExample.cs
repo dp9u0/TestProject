@@ -1,11 +1,13 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
+#endregion
+
 namespace CryptographyDemo {
     public class RSAExample {
-
-
         public static void Run() {
             Console.WriteLine("================================================");
             string sourceData = "Here is some data to encrypt!(RSA)";
@@ -15,6 +17,7 @@ namespace CryptographyDemo {
             Console.WriteLine("Encrypted:\n{0}", encryptData);
             Console.WriteLine("Decrypted:\n{0}", decryptData);
         }
+
         public static string Encrypt(string sourceData) {
             var rsa = 1;
             var cspParms = new CspParameters(rsa);
@@ -33,7 +36,7 @@ namespace CryptographyDemo {
             cspParms.Flags = CspProviderFlags.UseUserProtectedKey;
             cspParms.KeyContainerName = "MyKeys";
             var algorithm = new RSACryptoServiceProvider(cspParms);
-            var decryptBytes= algorithm.Decrypt(encryptBytes, true);
+            var decryptBytes = algorithm.Decrypt(encryptBytes, true);
             return new UnicodeEncoding().GetString(decryptBytes);
         }
     }

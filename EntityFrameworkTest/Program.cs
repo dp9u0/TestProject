@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Linq;
-using System.Text;
+﻿#region
+
+using System;
 using System.Threading;
-using System.Threading.Tasks;
+
+#endregion
 
 namespace EntityFrameworkTest {
-    class Program {
-        static void Main(string[] args) {
-
+    internal class Program {
+        private static void Main(string[] args) {
             using (DbContext context = new ModelContainer()) {
                 context.Set<Entity1>().Add(new Entity1());
                 context.SaveChanges();

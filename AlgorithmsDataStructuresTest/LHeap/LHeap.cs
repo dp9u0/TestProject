@@ -1,17 +1,13 @@
-﻿
+﻿#region
+
 using System;
 
-namespace AlgorithmsDataStructuresTest {
+#endregion
 
+namespace AlgorithmsDataStructuresTest {
     /// <summary>
-    /// 
     /// </summary>
     public class LHeap {
-
-        public LHeap() {
-
-        }
-
         private LNode _root;
 
         public void Print() {
@@ -26,7 +22,7 @@ namespace AlgorithmsDataStructuresTest {
             for (int i = 1; i < deepth; i++) {
                 Console.Write("       ");
             }
-            Console.WriteLine(string.Format("{0}({1})", node.Element, node.NPL));
+            Console.WriteLine("{0}({1})", node.Element, node.NPL);
             Console.WriteLine();
             PrintInternal(node.Left, deepth + 1);
         }
@@ -59,7 +55,7 @@ namespace AlgorithmsDataStructuresTest {
             if (root.Right == null) {
                 return;
             }
-            if (root.Left != null && root.Left.NPL > root.Right.NPL) {
+            if ((root.Left != null) && (root.Left.NPL > root.Right.NPL)) {
                 return;
             }
 
@@ -70,18 +66,15 @@ namespace AlgorithmsDataStructuresTest {
 
         private void UpdateNpl(LNode root) {
             root.NPL = Math.Min(root.Left == null ? 0 : root.Left.NPL,
-                root.Right == null ? 0 : root.Right.NPL)
-                + 1;
+                           root.Right == null ? 0 : root.Right.NPL)
+                       + 1;
         }
 
 
         /// <summary>
-        /// 
         /// </summary>
         public class LNode {
-
             /// <summary>
-            /// 
             /// </summary>
             /// <param name="element"></param>
             public LNode(int element) {
@@ -89,36 +82,20 @@ namespace AlgorithmsDataStructuresTest {
             }
 
             /// <summary>
-            /// 
             /// </summary>
-            public int Element {
-                get;
-                private set;
-            }
+            public int Element { get; private set; }
 
             /// <summary>
-            /// 
             /// </summary>
-            public LNode Left {
-                get;
-                set;
-            }
+            public LNode Left { get; set; }
 
             /// <summary>
-            /// 
             /// </summary>
-            public LNode Right {
-                get;
-                set;
-            }
+            public LNode Right { get; set; }
 
             /// <summary>
-            /// 
             /// </summary>
-            public int NPL {
-                get;
-                set;
-            }
+            public int NPL { get; set; }
         }
     }
 }

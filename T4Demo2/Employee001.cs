@@ -1,39 +1,35 @@
-//Generate By Tools
 #region Code
-using System;
-using System.Collections.Generic;
-namespace T4Demo2
-{   
+
+namespace T4Demo2 {
     /// <summary>
-    /// 实体-Employee001 
+    ///     实体-Employee001
     /// </summary>
-    public partial class Employee001    
-    {    
+    public class Employee001 {
         /// <summary>
-          /// Id
-          /// <summary>
-          public String Id { get; set; }
+        ///     Id
+        ///     <summary>
+        public string Id { get; set; }
 
-          /// <summary>
-          /// Name
-          /// <summary>
-          public String Name { get; set; }
+        /// <summary>
+        ///     Name
+        ///     <summary>
+        public string Name { get; set; }
 
-          /// <summary>
-          /// Department
-          /// <summary>
-          public String Department { get; set; }
+        /// <summary>
+        ///     Department
+        ///     <summary>
+        public string Department { get; set; }
 
-          /// <summary>
-          /// Organization
-          /// <summary>
-          public String Organization { get; set; }
+        /// <summary>
+        ///     Organization
+        ///     <summary>
+        public string Organization { get; set; }
 
-          /// <summary>
-          /// Company
-          /// <summary>
-          public String Company { get; set; }
-
-    } 
+        /// <summary>
+        ///     Company
+        ///     <summary>
+        public string Company { get; set; }
+    }
 }
+
 #endregion

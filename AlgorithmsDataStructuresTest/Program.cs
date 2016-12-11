@@ -1,15 +1,18 @@
-﻿
+﻿#region
 
 using System;
 using System.Collections.Generic;
 
+#endregion
+
 namespace AlgorithmsDataStructuresTest {
-    class Program {
-        const int count = 10;
-        static Random random = new Random();
-        static List<int> inputs1 = new List<int>();
-        static List<int> inputs2 = new List<int>();
-        static void Main(string[] args) {
+    internal class Program {
+        private const int count = 10;
+        private static Random random = new Random();
+        private static List<int> inputs1 = new List<int>();
+        private static List<int> inputs2 = new List<int>();
+
+        private static void Main(string[] args) {
             var heap1 = new LHeap();
             var heap2 = new LHeap();
             while (inputs1.Count < count) {

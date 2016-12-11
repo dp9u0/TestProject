@@ -1,11 +1,33 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CryptographyDemo {
+#endregion
 
+namespace CryptographyDemo {
     public sealed class Cryptographer : IDisposable {
+        private string _key;
+        private SymmetricAlgorithm _mobjCryptoService;
+
+        /// <summary>
+        ///     对称加密类的构造函数
+        /// </summary>
+        public Cryptographer() {
+            _mobjCryptoService = new RijndaelManaged();
+            _key = "fvHUFCy76*h%(HilJ$lhj!y6&(*jkP87jH7Guz(%&hj7x89H$yuBI0456FtmaT5&";
+            _mobjCryptoService.Padding = PaddingMode.PKCS7;
+        }
+
+        #region IDisposable 成员
+
+        public void Dispose() {
+            //_mobjCryptoService.Dispose();
+        }
+
+        #endregion
 
         public static void Run() {
             Console.WriteLine("================================================");
@@ -22,20 +44,9 @@ namespace CryptographyDemo {
             Console.WriteLine("Encrypted:\n{0}", strencrypto);
             Console.WriteLine("Decrypted:\n{0}", strdecrypto);
         }
-        private SymmetricAlgorithm _mobjCryptoService;
-
-        private string _key;
 
         /// <summary>
-        /// 对称加密类的构造函数
-        /// </summary>
-        public Cryptographer() {
-            _mobjCryptoService = new RijndaelManaged();
-            _key = "fvHUFCy76*h%(HilJ$lhj!y6&(*jkP87jH7Guz(%&hj7x89H$yuBI0456FtmaT5&";
-            _mobjCryptoService.Padding = PaddingMode.PKCS7;
-        }
-        /// <summary>
-        /// 获得密钥
+        ///     获得密钥
         /// </summary>
         /// <returns>密钥</returns>
         private byte[] GetLegalKey() {
@@ -47,11 +58,12 @@ namespace CryptographyDemo {
                 sTemp = sTemp.Substring(0, KeyLength);
             else if (sTemp.Length < KeyLength)
                 sTemp = sTemp.PadRight(KeyLength, ' ');
-            var key= ASCIIEncoding.ASCII.GetBytes(sTemp);
+            var key = ASCIIEncoding.ASCII.GetBytes(sTemp);
             return key;
         }
+
         /// <summary>
-        /// 获得初始向量IV
+        ///     获得初始向量IV
         /// </summary>
         /// <returns>初试向量IV</returns>
         private byte[] GetLegalIV() {
@@ -63,11 +75,12 @@ namespace CryptographyDemo {
                 sTemp = sTemp.Substring(0, IVLength);
             else if (sTemp.Length < IVLength)
                 sTemp = sTemp.PadRight(IVLength, ' ');
-            var iv= ASCIIEncoding.ASCII.GetBytes(sTemp);
+            var iv = ASCIIEncoding.ASCII.GetBytes(sTemp);
             return iv;
         }
+
         /// <summary>
-        /// 加密方法
+        ///     加密方法
         /// </summary>
         /// <param name="Source">待加密的串</param>
         /// <returns>经过加密的串</returns>
@@ -84,8 +97,9 @@ namespace CryptographyDemo {
             byte[] bytOut = ms.ToArray();
             return Convert.ToBase64String(bytOut);
         }
+
         /// <summary>
-        /// 解密方法
+        ///     解密方法
         /// </summary>
         /// <param name="Source">待解密的串</param>
         /// <returns>经过解密的串</returns>
@@ -102,15 +116,5 @@ namespace CryptographyDemo {
             sr.Close();
             return result;
         }
-
-
-        #region IDisposable 成员
-        
-        public void Dispose() {
-            //_mobjCryptoService.Dispose();
-        }
-
-        #endregion
     }
-
 }
