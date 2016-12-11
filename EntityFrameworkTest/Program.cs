@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Data.Entity;
 using System.Threading;
 
 #endregion

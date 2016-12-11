@@ -1,3 +1,5 @@
+using System.Data.Entity.Migrations;
+
 namespace CodeFirstNewDatabaseSample.Migrations {
     public partial class AddUser : DbMigration {
         public override void Up() {

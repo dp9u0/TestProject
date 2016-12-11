@@ -1,3 +1,5 @@
+using System.Data.Entity;
+
 namespace CodeFirstExistingDatabaseSample {
     public class Model1 : DbContext {
         public Model1()

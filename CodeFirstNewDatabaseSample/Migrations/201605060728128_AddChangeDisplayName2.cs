@@ -1,3 +1,5 @@
+using System.Data.Entity.Migrations;
+
 namespace CodeFirstNewDatabaseSample.Migrations {
     public partial class AddChangeDisplayName2 : DbMigration {
         public override void Up() {

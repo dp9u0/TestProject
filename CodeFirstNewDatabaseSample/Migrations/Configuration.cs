@@ -1,3 +1,5 @@
+using System.Data.Entity.Migrations;
+
 namespace CodeFirstNewDatabaseSample.Migrations {
     internal sealed class Configuration : DbMigrationsConfiguration<BloggingContext> {
         public Configuration() {
