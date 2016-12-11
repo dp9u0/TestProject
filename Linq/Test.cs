@@ -1,26 +1,29 @@
-﻿using System;
-using System.Collections;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
+#endregion
+
 namespace Linq {
     public static class Test {
+        private static IEnumerable<MyModel> enumarable = null;
+        private static IQueryable<MyModel> queryable = null;
+
         public static void Run() {
             Console.WriteLine("---------------------------");
             Test006();
             Console.WriteLine("===========================");
         }
-        static IEnumerable<MyModel> enumarable = null;
-        static IQueryable<MyModel> queryable = null;
 
         public static void Test001() {
             // see ref Test003() 
             var result = from t in enumarable
-                         select t.MyProperty;
-
+                select t.MyProperty;
         }
 
         public static void Test003() {
@@ -28,12 +31,11 @@ namespace Linq {
         }
 
 
-
         public static void Test002() {
             // see ref Test004
             // see ref Test005
             var result2 = from t in queryable
-                          select t.MyProperty;
+                select t.MyProperty;
         }
 
         public static void Test004() {
@@ -55,46 +57,43 @@ namespace Linq {
             // SELECT * FROM (SELECT * FROM User) AS T WHERE (Age>2)
 
             List<MyModel> myUsers2 = new List<MyModel>();
-            string userSql2 = myUsers.AsQueryable().ToSql(u => u.Name == "Jesse" && u.Name !="");
+            string userSql2 = myUsers.AsQueryable().ToSql(u => (u.Name == "Jesse") && (u.Name != ""));
             Console.WriteLine(userSql2);
             // SELECT * FROM (SELECT * FROM USER) AS T WHERE (Name='Jesse')
         }
-        public static string ToSql<TSource>(this IQueryable<TSource> source,
-                Expression<Func<TSource, bool>> predicate) {
 
-            var expression = Expression.Call(null, ((MethodInfo)MethodBase.GetCurrentMethod())
-            .MakeGenericMethod(new Type[] { typeof(TSource) }),
-            new Expression[] { source.Expression, Expression.Quote(predicate) });
+        public static string ToSql<TSource>(this IQueryable<TSource> source,
+            Expression<Func<TSource, bool>> predicate) {
+            var expression = Expression.Call(null, ((MethodInfo) MethodBase.GetCurrentMethod())
+                    .MakeGenericMethod(typeof(TSource)),
+                new[] {source.Expression, Expression.Quote(predicate)});
 
             var translator = new QueryTranslator();
             return translator.Translate(expression);
         }
 
         public class QueryTranslator : ExpressionVisitor {
-            StringBuilder sb;
-
-            public QueryTranslator() {
-            }
+            private StringBuilder sb;
 
             public string Translate(Expression expression) {
-                this.sb = new StringBuilder();
-                this.Visit(expression);
-                return this.sb.ToString();
+                sb = new StringBuilder();
+                Visit(expression);
+                return sb.ToString();
             }
 
             private static Expression StripQuotes(Expression e) {
                 while (e.NodeType == ExpressionType.Quote) {
-                    e = ((UnaryExpression)e).Operand;
+                    e = ((UnaryExpression) e).Operand;
                 }
                 return e;
             }
 
             protected override Expression VisitMethodCall(MethodCallExpression m) {
-                if (m.Method.DeclaringType == typeof(Test) && m.Method.Name == "ToSql") {
+                if ((m.Method.DeclaringType == typeof(Test)) && (m.Method.Name == "ToSql")) {
                     sb.Append("SELECT * FROM (");
                     Visit(m.Arguments[0]);
                     sb.Append(") AS T WHERE ");
-                    LambdaExpression lambda = (LambdaExpression)StripQuotes(m.Arguments[1]);
+                    LambdaExpression lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);
                     Visit(lambda.Body);
                     return m;
                 }
@@ -105,7 +104,7 @@ namespace Linq {
                 switch (u.NodeType) {
                     case ExpressionType.Not:
                         sb.Append(" NOT ");
-                        this.Visit(u.Operand);
+                        Visit(u.Operand);
                         break;
                     default:
                         throw new NotSupportedException(string.Format("运算{0}不支持", u.NodeType));
@@ -115,7 +114,7 @@ namespace Linq {
 
             protected override Expression VisitBinary(BinaryExpression b) {
                 sb.Append("(");
-                this.Visit(b.Left);
+                Visit(b.Left);
                 switch (b.NodeType) {
                     case ExpressionType.And:
                         sb.Append(" AND ");
@@ -144,7 +143,7 @@ namespace Linq {
                     default:
                         throw new NotSupportedException(string.Format("运算符{0}不支持", b.NodeType));
                 }
-                this.Visit(b.Right);
+                Visit(b.Right);
                 sb.Append(")");
                 return b;
             }
@@ -160,7 +159,7 @@ namespace Linq {
                 } else {
                     switch (Type.GetTypeCode(c.Value.GetType())) {
                         case TypeCode.Boolean:
-                            sb.Append(((bool)c.Value) ? 1 : 0);
+                            sb.Append((bool) c.Value ? 1 : 0);
                             break;
                         case TypeCode.String:
                             sb.Append("'");
@@ -178,28 +177,21 @@ namespace Linq {
             }
 
             protected override Expression VisitMember(MemberExpression m) {
-                if (m.Expression != null && m.Expression.NodeType == ExpressionType.Parameter) {
+                if ((m.Expression != null) && (m.Expression.NodeType == ExpressionType.Parameter)) {
                     sb.Append(m.Member.Name);
                     return m;
                 }
                 throw new NotSupportedException(string.Format("成员{0}不支持", m.Member.Name));
             }
-
-
         }
     }
 
 
     public class MyModel {
-        public string Name {
-            get; set;
-        }
+        public string Name { get; set; }
 
-        public int Age {
-            get; set;
-        }
-        public string MyProperty {
-            get; set;
-        }
+        public int Age { get; set; }
+
+        public string MyProperty { get; set; }
     }
 }
