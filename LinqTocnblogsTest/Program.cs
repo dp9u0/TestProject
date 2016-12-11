@@ -14,11 +14,12 @@ namespace Test {
 
             var query =
                 from p in queryable
-                where (p.Diggs >= 10) &&
-                      (p.Comments > 10) &&
-                      (p.Views > 10) &&
-                      (p.Comments < 20)
-                select p;
+                where p.Title.Contains("r")
+                        && (p.Diggs >= 10)
+                        && (p.Comments > 10)
+                        && (p.Views > 10)
+                        && (p.Comments < 20)
+                select p.Title;
 
             Console.WriteLine(query.ToString());
 

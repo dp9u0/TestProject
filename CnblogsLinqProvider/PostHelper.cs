@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -13,7 +14,7 @@ namespace CnblogsLinqProvider {
     public class PostHelper {
         internal static string BuildUrl(SearchCriteria criteria, string url = null) {
             if (criteria == null)
-                throw new ArgumentNullException("criteria");
+                throw new ArgumentNullException(nameof(criteria));
 
             var sbUrl = new StringBuilder(url ?? "http://linqtocnblogs.cloudapp.net/");
             var sbParameter = new StringBuilder();
@@ -25,10 +26,10 @@ namespace CnblogsLinqProvider {
                 AppendParameter(sbParameter, "Author", criteria.Author);
 
             if (criteria.Start.HasValue)
-                AppendParameter(sbParameter, "Start", criteria.Start.Value.ToString());
+                AppendParameter(sbParameter, "Start", criteria.Start.Value.ToString(CultureInfo.InvariantCulture));
 
             if (criteria.End.HasValue)
-                AppendParameter(sbParameter, "End", criteria.End.Value.ToString());
+                AppendParameter(sbParameter, "End", criteria.End.Value.ToString(CultureInfo.InvariantCulture));
 
             if (criteria.MinDiggs > 0)
                 AppendParameter(sbParameter, "MinDiggs", criteria.MinDiggs.ToString());

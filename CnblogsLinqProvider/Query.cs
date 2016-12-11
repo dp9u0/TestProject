@@ -3,12 +3,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 
 #endregion
 
 namespace CnblogsLinqProvider {
+
+    [DebuggerDisplay("Query")]
     public class Query<T> : IOrderedQueryable<T> {
 
         private readonly Expression _expression;
@@ -18,7 +21,7 @@ namespace CnblogsLinqProvider {
             if (provider == null) {
                 throw new ArgumentNullException(nameof(provider));
             }
-            this._provider = provider;
+            _provider = provider;
             _expression = Expression.Constant(this);
         }
 

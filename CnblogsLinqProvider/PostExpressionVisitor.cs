@@ -9,6 +9,8 @@ using System.Reflection;
 
 namespace CnblogsLinqProvider {
     public class PostExpressionVisitor {
+
+
         private SearchCriteria _criteria;
 
 // 入口方法
@@ -212,12 +214,11 @@ namespace CnblogsLinqProvider {
             } else if ((expression.Method.DeclaringType == typeof(string)) &&
                        (expression.Method.Name == "Contains")) {
                 // Handle Title.Contains("")
-                if (expression.Object.NodeType == ExpressionType.MemberAccess) {
-                    MemberExpression memberExpr = (MemberExpression) expression.Object;
+                if (expression.Object != null && expression.Object.NodeType == ExpressionType.MemberAccess) {
+                    var memberExpr = (MemberExpression) expression.Object;
                     if (memberExpr.Expression.Type == typeof(Post)) {
                         if (memberExpr.Member.Name == "Title") {
-                            Expression argument;
-                            argument = expression.Arguments[0];
+                            var argument = expression.Arguments[0];
                             if (argument.NodeType == ExpressionType.Constant) {
                                 _criteria.Title =
                                     (string) ((ConstantExpression) argument).Value;
@@ -239,11 +240,10 @@ namespace CnblogsLinqProvider {
 
 // 获取属性值
         private object GetMemberValue(MemberExpression memberExpression) {
-            MemberInfo memberInfo;
             object obj;
 
             if (memberExpression == null)
-                throw new ArgumentNullException("memberExpression");
+                throw new ArgumentNullException(nameof(memberExpression));
 
 
             if (memberExpression.Expression is ConstantExpression)
@@ -254,13 +254,15 @@ namespace CnblogsLinqProvider {
                 throw new NotSupportedException("Expression type not supported: "
                                                 + memberExpression.Expression.GetType().FullName);
 
-            memberInfo = memberExpression.Member;
-            if (memberInfo is PropertyInfo) {
-                PropertyInfo property = (PropertyInfo) memberInfo;
+            var memberInfo = memberExpression.Member;
+            var info = memberInfo as PropertyInfo;
+            if (info != null) {
+                var property = info;
                 return property.GetValue(obj, null);
             }
-            if (memberInfo is FieldInfo) {
-                FieldInfo field = (FieldInfo) memberInfo;
+            var fieldInfo = memberInfo as FieldInfo;
+            if (fieldInfo != null) {
+                var field = fieldInfo;
                 return field.GetValue(obj);
             }
             throw new NotSupportedException("MemberInfo type not supported: "
