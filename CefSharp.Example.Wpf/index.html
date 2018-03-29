@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="txtBox" value="test" />
+        <input type="button" value="ShowText" id="btnOk" onclick="btnOkClick();" />
+        <input type="button" value="CallDotNetObj" id="btnTest" onclick="btnTestClick();" />
+    </div>
+    <script type="text/javascript">
+        function btnOkClick() {
+            alert("value input is : " + document.getElementById("txtBox").value);
+        }
+
+        function btnTestClick() {
+            var bound = window.external;
+            if (bound) {
+                bound.myMethod();
+            } else {
+                alert("bound not fount");
+            }
+
+            bound.Log("test");
+        }
+
+
+        function alerttest(args) {
+            alert("hello " + args);
+        }
+
+    </script>
+</body>
+
+</html>

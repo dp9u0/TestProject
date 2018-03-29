@@ -1,0 +1,11 @@
+﻿<Window x:Class="CefSharp.Example.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="249" Width="390">
+    <Grid>
+        <Button Content="WebBrowser" Height="23" HorizontalAlignment="Left" Margin="89,68,0,0" Name="btnWebBrowser"
+                VerticalAlignment="Top" Width="191" Click="btnWebBrowser_Click" />
+        <Button Content="ChromiumWebBrowser" Height="23" HorizontalAlignment="Left" Margin="89,128,0,0"
+                Name="btnChromiumWebBrowser" VerticalAlignment="Top" Width="191" Click="btnChromiumWebBrowser_Click" />
+    </Grid>
+</Window>

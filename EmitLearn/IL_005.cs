@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 namespace EmitLearn {
     /// <summary>
     ///     Locala Locala_s的区别
+    ///     ldloca.s 指令为使用局部变量 0 到 255 提供有效的编码。
     /// </summary>
     public class IL_005 {
         /// <summary>
