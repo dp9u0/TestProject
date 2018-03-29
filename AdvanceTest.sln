@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitLearn", "EmitLearn\EmitLearn.csproj", "{B1610A43-9A4E-4C74-A293-7171952B6F94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeDescriptionProviderDemo", "TypeDescriptionProviderDemo\TypeDescriptionProviderDemo.csproj", "{74790AE7-4D95-4515-A02E-C69B44575FAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptographyDemo", "CryptographyDemo\CryptographyDemo.csproj", "{0348068B-B860-4690-955A-72D7497FA232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unmanaged", "Unmanaged\Unmanaged.csproj", "{C282C4FF-81A2-4BFB-ABB4-5AE833873FF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{0348068B-B860-4690-955A-72D7497FA232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0348068B-B860-4690-955A-72D7497FA232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0348068B-B860-4690-955A-72D7497FA232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C282C4FF-81A2-4BFB-ABB4-5AE833873FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C282C4FF-81A2-4BFB-ABB4-5AE833873FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C282C4FF-81A2-4BFB-ABB4-5AE833873FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C282C4FF-81A2-4BFB-ABB4-5AE833873FF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9987695-6C69-4630-BC2E-041CECCC0D3C}
 	EndGlobalSection
 EndGlobal
