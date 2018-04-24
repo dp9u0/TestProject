@@ -33,10 +33,11 @@ namespace ExpressionDemo {
             Console.WriteLine("------------------------------");
             Test010();
             Console.WriteLine("==============================");
+            Console.ReadLine();
         }
 
         [Description("")]
-        public static void Test001() {
+        private static void Test001() {
             ParameterExpression parameterExpression = Expression.Parameter(typeof(int), "x");
             Expression<Func<int, int>> expr =
                 Expression.Lambda<Func<int, int>>(
@@ -49,7 +50,7 @@ namespace ExpressionDemo {
             });
         }
 
-        public static void Test002() {
+        private static void Test002() {
             ParameterExpression parameterExpression = Expression.Parameter(typeof(int), "x");
             Expression<Func<int, int>> expr =
                 Expression.Lambda<Func<int, int>>(
@@ -66,16 +67,15 @@ namespace ExpressionDemo {
             });
         }
 
-        public static void Test003() {
-            LoopExpression loop = Expression.Loop(Expression.Call(null, typeof(Console).GetMethod("WriteLine", new[] {
-                typeof(string)
-            }), Expression.Constant("Hello")));
+        private static void Test003() {
+            LoopExpression loop = Expression.Loop(Expression.Call(typeof(Console).GetMethod("WriteLine", new[] {typeof(string)
+            }) ?? throw new InvalidOperationException(), Expression.Constant("Hello")));
             BlockExpression block = Expression.Block(loop);
             Expression<Action> lambdaExpression = Expression.Lambda<Action>(block, Array.Empty<ParameterExpression>());
             lambdaExpression.SaveToAssembly("Test003", null, null);
         }
 
-        public static void Test004() {
+        private static void Test004() {
             ConstantExpression left = Expression.Constant(1);
             ConstantExpression right = Expression.Constant(2);
             BinaryExpression addExpression = Expression.Add(left, right);
@@ -89,7 +89,7 @@ namespace ExpressionDemo {
         }
 
         [Description("Expression.Loop")]
-        public static void Test005() {
+        private static void Test005() {
             LabelTarget labelBreak = Expression.Label("label");
             ParameterExpression loopIndex = Expression.Parameter(typeof(int), "index");
             BlockExpression block = Expression.Block(new[] {
@@ -99,7 +99,7 @@ namespace ExpressionDemo {
                     Expression.IfThenElse(Expression.LessThanOrEqual(loopIndex, Expression.Constant(10)),
                         Expression.Block(Expression.Call(null, typeof(Console).GetMethod("WriteLine", new[] {
                             typeof(string)
-                        }), Expression.Constant("Hello")), Expression.PostIncrementAssign(loopIndex)),
+                        }) ?? throw new InvalidOperationException(), Expression.Constant("Hello")), Expression.PostIncrementAssign(loopIndex)),
                         Expression.Break(labelBreak)), labelBreak));
             Expression<Action> lambdaExpression = Expression.Lambda<Action>(block, Array.Empty<ParameterExpression>());
             lambdaExpression.SaveToAssembly("Test005", null, null);
@@ -186,15 +186,15 @@ namespace ExpressionDemo {
             var block = Expression.Block(new[] {defaultKey},
                 Expression.Assign(defaultKey, Expression.Constant(1, typeof(int))),
                 Expression.IfThenElse(
-                    Expression.Call(defaultDic, typeof(Dictionary<int, string>).GetMethod("ContainsKey"), defaultKey),
+                    Expression.Call(defaultDic, typeof(Dictionary<int, string>).GetMethod("ContainsKey") ?? throw new InvalidOperationException(), defaultKey),
                     Expression.Return(returnTarget, defaultDic, typeof(Dictionary<int, string>)),
                     Expression.Block(
                         new[] {dicLocVar},
                         Expression.Assign(defaultKey, Expression.Constant(2, typeof(int))),
                         Expression.Assign(dicLocVar, newDictionaryExpression),
-                        Expression.Call(dicLocVar, typeof(Dictionary<int, string>).GetMethod("Add"), intParam,
+                        Expression.Call(dicLocVar, typeof(Dictionary<int, string>).GetMethod("Add") ?? throw new InvalidOperationException(), intParam,
                             stringParm),
-                        Expression.Call(dicLocVar, typeof(Dictionary<int, string>).GetMethod("Add"), defaultKey,
+                        Expression.Call(dicLocVar, typeof(Dictionary<int, string>).GetMethod("Add") ?? throw new InvalidOperationException(), defaultKey,
                             Expression.Constant("defalut", typeof(string))),
                         Expression.Return(returnTarget, dicLocVar, typeof(Dictionary<int, string>)))
                 ),
@@ -229,7 +229,7 @@ namespace ExpressionDemo {
             MethodBuilder methodBuilder = typeBuilder.DefineMethod(assemblyName + "Method",
                 MethodAttributes.FamANDAssem | MethodAttributes.Family | MethodAttributes.Static, returnType, paramTypes);
             lambdaExpr.CompileToMethod(methodBuilder);
-            Type type = typeBuilder.CreateType();
+            typeBuilder.CreateType();
             assemblyBuilder.Save(assemblyName + ".dll");
         }
     }

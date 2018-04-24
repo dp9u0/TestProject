@@ -3,6 +3,8 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
+using System.Reflection.Emit;
 using CnblogsLinqProvider;
 
 #endregion
@@ -42,25 +44,27 @@ namespace Test {
             IQueryable<Post> arg14D0 = queryable;
             ParameterExpression parameterExpression = Expression.Parameter(typeof(Post), "p");
 
-            IQueryable<Post> arg18B0 =
-                arg14D0.Where(
-                    Expression.Lambda<Func<Post, bool>>(
+            var expression = Expression.Lambda<Func<Post, bool>>(
+                Expression.AndAlso(
+                    Expression.AndAlso(
                         Expression.AndAlso(
                             Expression.AndAlso(
-                                Expression.AndAlso(
-                                    Expression.AndAlso(
-                                        Expression.Call(
-                                            Expression.Property(parameterExpression, "Title"),
-                                            typeof(string).GetMethod("Contains"), Expression.Constant("r", typeof(string))),
-                                        Expression.GreaterThanOrEqual(
-                                            Expression.Property(parameterExpression, "Diggs"),
-                                            Expression.Constant(10, typeof(int)))),
-                                    Expression.GreaterThan(Expression.Property(parameterExpression,
-                                        "Comments"), Expression.Constant(10, typeof(int)))), Expression.GreaterThan(
-                                    Expression.Property(parameterExpression,
-                                        "Views"), Expression.Constant(10, typeof(int)))),
-                            Expression.LessThan(Expression.Property(parameterExpression,
-                                "Comments"), Expression.Constant(20, typeof(int)))), parameterExpression));
+                                Expression.Call(
+                                    Expression.Property(parameterExpression, "Title"),
+                                    typeof(string).GetMethod("Contains") ?? throw new InvalidOperationException(),
+                                    Expression.Constant("r", typeof(string))),
+                                Expression.GreaterThanOrEqual(
+                                    Expression.Property(parameterExpression, "Diggs"),
+                                    Expression.Constant(10, typeof(int)))),
+                            Expression.GreaterThan(Expression.Property(parameterExpression,
+                                "Comments"), Expression.Constant(10, typeof(int)))), Expression.GreaterThan(
+                            Expression.Property(parameterExpression,
+                                "Views"), Expression.Constant(10, typeof(int)))),
+                    Expression.LessThan(Expression.Property(parameterExpression,
+                        "Comments"), Expression.Constant(20, typeof(int)))), parameterExpression);
+
+            IQueryable<Post> arg18B0 =
+                arg14D0.Where(expression);
 
             //input parameterExpression
             //parameterExpression = Expression.Parameter(typeof(Post), "p");
@@ -68,10 +72,30 @@ namespace Test {
             //IQueryable<string> query = arg18B0.Select(Expression.Lambda<Func<Post, string>>(
             //    Expression.Property(parameterExpression,
             //        "Title"), parameterExpression));
+            expression.SaveToAssembly("Test001", typeof(int), new[] {
+                typeof(int)
+            });
 
             Console.WriteLine(arg18B0.ToString());
             //var list = query.ToList();
 
+        }
+
+    }
+
+    public static class Ext {
+        public static void SaveToAssembly(this LambdaExpression lambdaExpr, string assemblyName, Type returnType,
+            Type[] paramTypes) {
+            AssemblyBuilder assemblyBuilder =
+                AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(assemblyName),
+                    AssemblyBuilderAccess.RunAndSave);
+            ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule(assemblyName, assemblyName + ".dll");
+            TypeBuilder typeBuilder = moduleBuilder.DefineType(assemblyName + "Class", TypeAttributes.Public);
+            MethodBuilder methodBuilder = typeBuilder.DefineMethod(assemblyName + "Method",
+                MethodAttributes.FamANDAssem | MethodAttributes.Family | MethodAttributes.Static, returnType, paramTypes);
+            lambdaExpr.CompileToMethod(methodBuilder);
+            typeBuilder.CreateType();
+            assemblyBuilder.Save(assemblyName + ".dll");
         }
     }
 }

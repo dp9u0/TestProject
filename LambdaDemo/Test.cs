@@ -49,19 +49,29 @@ namespace LambdaDemo {
 
 
         public void Test004() {
-            //Create anonymous object
+
+            Action<string> action = (quen) => { Console.WriteLine("The answer to `" + quen + "` is certainly 42!"); };
+
+                //Create anonymous object
             var person = new {
                 Name = "Jesse",
-                Age = 28
-                /*
-                //错误	CS0828	无法将 lambda 表达式 赋予匿名类型属性	DelegateLambda       
-                Ask = (string question) => {
-                    Console.WriteLine("The answer to `" + question + "` is certainly 42!");
-                }*/
+                Age = 28,
+                //错误  CS0828  无法将 lambda 表达式 赋予匿名类型属性 DelegateLambda
+                Ask = action
             };
 
+            var p2 = new Persion();
+            
             //Execute function
             //person.Ask("Why are you doing this?");
+        }
+
+        public class Persion {
+
+            public void Ask() {
+
+            }
+
         }
 
         public void Test005() {

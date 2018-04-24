@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp", "WindowsFormsApp\WindowsFormsApp.csproj", "{7B32F15D-A1C1-4496-9911-858128D7BBB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{7D874892-D6A0-40E9-85A8-0FC6B070A936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandBinding", "CommandBinding\CommandBinding.csproj", "{2F8624BD-94F8-4567-9CCB-C6B59342E335}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,15 @@ Global
 		{7D874892-D6A0-40E9-85A8-0FC6B070A936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D874892-D6A0-40E9-85A8-0FC6B070A936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D874892-D6A0-40E9-85A8-0FC6B070A936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F8624BD-94F8-4567-9CCB-C6B59342E335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F8624BD-94F8-4567-9CCB-C6B59342E335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F8624BD-94F8-4567-9CCB-C6B59342E335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F8624BD-94F8-4567-9CCB-C6B59342E335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3023B346-1480-48DD-BB76-52720C506886}
 	EndGlobalSection
 EndGlobal

@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 #endregion
 
 namespace Demo {
-    internal class Program {
-        private static void Main(string[] args) {
+
+    /// <summary>
+    /// 
+    /// </summary>
+    internal static class Program {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void Main() {
             Console.WriteLine("测试1开始:{0}", Thread.CurrentThread.ManagedThreadId);
             SyncMethodCallSyncWork(0, false);
             Console.WriteLine("测试1结束:{0}", Thread.CurrentThread.ManagedThreadId);
@@ -48,6 +56,7 @@ namespace Demo {
             //这样的调用方式是没法等待的
             //开始任务后 直接开始执行后面的代码
             //AsyncMethod 依旧在执行 不过当前线程不会等待执行完成
+            // ReSharper disable once UnusedVariable
             var task2 = AsyncMethodCallAsyncWork(0, true);
             Console.WriteLine("测试6结束(其实还没结束):{0}", Thread.CurrentThread.ManagedThreadId);
 
@@ -74,9 +83,8 @@ namespace Demo {
             try {
                 // 启动异步任务
                 var task = AsyncWork(input, throwEx);
-                var result = 0;
                 //取Result时 会阻塞 会等待任务执行完成
-                result = task.Result;
+                int result = task.Result;
                 // 下面是同步方法
                 //var result = Work(input);
                 Console.WriteLine("最终结果{0}:{1}", result, Thread.CurrentThread.ManagedThreadId);

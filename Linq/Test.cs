@@ -16,8 +16,9 @@ namespace Linq {
 
         public static void Run() {
             Console.WriteLine("---------------------------");
-            Test006();
+            Test005();
             Console.WriteLine("===========================");
+            Console.ReadLine();
         }
 
         public static void Test001() {
@@ -44,7 +45,7 @@ namespace Linq {
 
         public static void Test005() {
             ParameterExpression parameterExpression = Expression.Parameter(typeof(MyModel), "t");
-            var indexExpression = Expression.Property(parameterExpression, "MyProperty", parameterExpression);
+            var indexExpression = Expression.Property(parameterExpression, "MyProperty");
             var lambda = Expression.Lambda<Func<MyModel, string>>(indexExpression);
             var result = queryable.Select(lambda);
         }
