@@ -1,21 +1,18 @@
-﻿// FileName:  RelayCommand .cs
+﻿// FileName:  RelayCommand.cs
 // Author:  guodp <guodp9u0@gmail.com>
 // Create Date:  20180424 11:06
 // Description:   
 
+#region
+
 using System;
 using System.Windows.Input;
+
+#endregion
 
 namespace CommandBinding {
 
     public class RelayCommand : ICommand {
-
-        #region Fields
-
-        readonly Action<object> _execute;
-        readonly Predicate<object> _canExecute;
-
-        #endregion 
 
         #region Constructors 
 
@@ -23,6 +20,13 @@ namespace CommandBinding {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
+
+        #endregion
+
+        #region Fields
+
+        private readonly Action<object> _execute;
+        private readonly Predicate<object> _canExecute;
 
         #endregion
 
@@ -42,6 +46,7 @@ namespace CommandBinding {
         }
 
         #endregion
+
     }
 
 }

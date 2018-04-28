@@ -15,6 +15,7 @@ namespace CommandBinding {
 
         public static RoutedUICommand MyCommand = new RoutedUICommand();
         public static RoutedUICommand MyCommand2 = new RoutedUICommand();
+
     }
 
 }

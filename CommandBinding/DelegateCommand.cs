@@ -34,6 +34,7 @@ namespace CommandBinding {
                 _canExecuteCache = temp;
                 CanExecuteChanged?.Invoke(this, new EventArgs());
             }
+
             return _canExecuteCache;
         }
 

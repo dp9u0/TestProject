@@ -1,4 +1,9 @@
-﻿#region
+﻿// FileName:  AssemblyInfo.cs
+// Author:  guodp <guodp9u0@gmail.com>
+// Create Date:  20170914 15:05
+// Description:   
+
+#region
 
 using System.Reflection;
 using System.Runtime.InteropServices;

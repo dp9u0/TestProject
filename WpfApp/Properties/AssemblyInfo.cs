@@ -1,4 +1,9 @@
-﻿#region
+﻿// FileName:  AssemblyInfo.cs
+// Author:  guodp <guodp9u0@gmail.com>
+// Create Date:  20170914 15:05
+// Description:   
+
+#region
 
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -36,13 +41,13 @@ using System.Windows;
 
 
 [assembly: ThemeInfo(
-               ResourceDictionaryLocation.None, //主题特定资源词典所处位置
-               //(当资源未在页面
-               //或应用程序资源字典中找到时使用)
-               ResourceDictionaryLocation.SourceAssembly //常规资源词典所处位置
-               //(当资源未在页面
-               //、应用程序或任何主题专用资源字典中找到时使用)
-           )]
+    ResourceDictionaryLocation.None, //主题特定资源词典所处位置
+    //(当资源未在页面
+    //或应用程序资源字典中找到时使用)
+    ResourceDictionaryLocation.SourceAssembly //常规资源词典所处位置
+    //(当资源未在页面
+    //、应用程序或任何主题专用资源字典中找到时使用)
+)]
 
 
 // 程序集的版本信息由下列四个值组成: 

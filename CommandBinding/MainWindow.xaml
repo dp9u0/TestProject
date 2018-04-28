@@ -6,6 +6,37 @@
         xmlns:local="clr-namespace:CommandBinding"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Name="Main">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="MyButtonTemplate" TargetType="{x:Type Button}">
+                <Border BorderBrush="Red" Name="TheBorder" BorderThickness="2">
+                    <ContentPresenter />
+                </Border>
+            </ControlTemplate>
+            <Style x:Key="TestStyle" TargetType="TextBox">
+                <Style.Setters>
+                    <Setter Property="Text" Value="Test" />
+                </Style.Setters>
+                <Style.Triggers>
+
+                </Style.Triggers>
+                <Style.Resources>
+
+                </Style.Resources>
+            </Style>
+            <Style x:Key="TestStyle2" TargetType="TextBox" BasedOn="{StaticResource TestStyle}">
+                <Style.Setters>
+                    <Setter Property="Text" Value="Test" />
+                </Style.Setters>
+                <Style.Triggers>
+
+                </Style.Triggers>
+                <Style.Resources>
+
+                </Style.Resources>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding
             Command="local:MyAppCommands.MyCommand"
@@ -16,13 +47,18 @@
             Executed="cb_Executed2"
             CanExecute="CommandBinding_CanExecute2" />
     </Window.CommandBindings>
-    <Grid >
-        <Button Content="Button3" HorizontalAlignment="Left" Margin="68,42,0,0" VerticalAlignment="Top" Width="75" Command="local:MyAppCommands.MyCommand" CommandParameter="{Binding ElementName=TxtPara,Path=Text}"/>
-        <Button Content="Button2" HorizontalAlignment="Left" Margin="272,37,0,0" VerticalAlignment="Top" Width="75" Command="local:MyAppCommands.MyCommand2" CommandParameter="{Binding ElementName=TxtPara,Path=Text}" />
-        <Button Content="Button1" HorizontalAlignment="Left" Margin="436,42,0,0" VerticalAlignment="Top" Width="75" Command="{Binding ElementName=Main, Path=SaveCommand}" />
-        <Button Content="Button4" HorizontalAlignment="Left" Margin="567,42,0,0" VerticalAlignment="Top" Width="75" Command="{Binding ElementName=Main, Path=SaveCommand2}" />
+    <Grid>
+        <Button Content="Button3" HorizontalAlignment="Left" Margin="68,42,0,0" VerticalAlignment="Top" Width="75"
+                Command="local:MyAppCommands.MyCommand" CommandParameter="{Binding ElementName=TxtPara,Path=Text}" />
+        <Button Content="Button2" HorizontalAlignment="Left" Margin="272,37,0,0" VerticalAlignment="Top" Width="75"
+                Command="local:MyAppCommands.MyCommand2" CommandParameter="{Binding ElementName=TxtPara,Path=Text}" />
+        <Button Content="Button1" HorizontalAlignment="Left" Margin="436,42,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding ElementName=Main, Path=SaveCommand}" />
+        <Button Content="Button4" HorizontalAlignment="Left" Margin="567,42,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding ElementName=Main, Path=SaveCommand2}" />
 
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Name="ChkCommand" Margin="207,185,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="TxtPara" Background="Wheat" Margin="189,108,210,279"  />
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Name="ChkCommand" Margin="207,185,0,0"
+                  VerticalAlignment="Top" />
+        <TextBox Name="TxtPara" Background="Wheat" Margin="189,108,210,279" />
     </Grid>
 </Window>

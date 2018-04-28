@@ -1,4 +1,9 @@
-﻿#region
+﻿// FileName:  Form1.cs
+// Author:  guodp <guodp9u0@gmail.com>
+// Create Date:  20170914 15:05
+// Description:   
+
+#region
 
 using System;
 using System.Threading;
@@ -7,7 +12,9 @@ using System.Windows.Forms;
 #endregion
 
 namespace WindowsFormsApp {
+
     public partial class Form1 : Form {
+
         public Form1() {
             InitializeComponent();
         }
@@ -27,5 +34,7 @@ namespace WindowsFormsApp {
         }
 
         private delegate string InvokeDelegate();
+
     }
+
 }

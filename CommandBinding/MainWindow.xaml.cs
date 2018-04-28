@@ -21,6 +21,17 @@ namespace CommandBinding {
             InitializeComponent();
         }
 
+        private RelayCommand _saveCommand;
+        private DelegateCommand _saveCommand2;
+
+        public ICommand SaveCommand {
+            get { return _saveCommand ?? (_saveCommand = new RelayCommand(param => Save(), CanSave)); }
+        }
+
+        public ICommand SaveCommand2 {
+            get { return _saveCommand2 ?? (_saveCommand2 = new DelegateCommand(param => Save2(), CanSave2)); }
+        }
+
         private void cb_Executed(object sender, ExecutedRoutedEventArgs e) {
             MessageBox.Show(e.Parameter.ToString());
         }
@@ -41,22 +52,7 @@ namespace CommandBinding {
             }
         }
 
-        RelayCommand _saveCommand;
-        DelegateCommand _saveCommand2;
-
-        public ICommand SaveCommand {
-            get {
-                return _saveCommand ?? (_saveCommand = new RelayCommand(param => Save(), CanSave));
-            }
-        }
-
-        public ICommand SaveCommand2 {
-            get {
-                return _saveCommand2 ?? (_saveCommand2 = new DelegateCommand(param => Save2(), CanSave2));
-            }
-        }
-
-        void Save() {
+        private void Save() {
             MessageBox.Show("afasdfasdfasdf");
         }
 
@@ -65,13 +61,14 @@ namespace CommandBinding {
         }
 
 
-        void Save2() {
+        private void Save2() {
             MessageBox.Show("ewrqwerqwer");
         }
 
         private bool CanSave2(object param) {
             return true;
         }
+
     }
 
 }
