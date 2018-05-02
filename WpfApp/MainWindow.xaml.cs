@@ -36,7 +36,7 @@ namespace WpfApp {
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) {
-            Button
+            var btn = sender as Button;
         }
 
     }

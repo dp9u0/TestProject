@@ -71,6 +71,14 @@
     <StackPanel>
         <Button Template="{StaticResource MyButtonTemplate}" Click="Button_Click_1">My first button</Button>
         <Button Template="{StaticResource MyButtonTemplate}" Click="Button_Click">My second button</Button>
-        <Button Style="{StaticResource SimpleButton}" Click="Button_Click">My Third button</Button>
+        <!-- The image contained within this button has an effective
+     opacity of 0.125 (0.25 * 0.5 = 0.125). -->
+        <Button Opacity="0.25">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin="10">A Button</TextBlock>
+                <Image Source="001.jpg" Width="50" Height="50"
+                       Opacity="0.5" />
+            </StackPanel>
+        </Button>
     </StackPanel>
 </Window>
