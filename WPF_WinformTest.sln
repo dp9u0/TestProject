@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutSample", "LayoutSampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttachProperty", "AttachProperty\AttachProperty.csproj", "{1C595F12-CA8C-4350-A8B9-2F2E7E89195F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandSample", "CommandSample\CommandSample.csproj", "{8B4044C0-1923-47B6-A21C-D2B4D46E4D16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xReferenceSample", "xReferenceSample\xReferenceSample.csproj", "{7B7C4717-28AC-49F0-A00E-5AB36C2C8A67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{1C595F12-CA8C-4350-A8B9-2F2E7E89195F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C595F12-CA8C-4350-A8B9-2F2E7E89195F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C595F12-CA8C-4350-A8B9-2F2E7E89195F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4044C0-1923-47B6-A21C-D2B4D46E4D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4044C0-1923-47B6-A21C-D2B4D46E4D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4044C0-1923-47B6-A21C-D2B4D46E4D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4044C0-1923-47B6-A21C-D2B4D46E4D16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7C4717-28AC-49F0-A00E-5AB36C2C8A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B7C4717-28AC-49F0-A00E-5AB36C2C8A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B7C4717-28AC-49F0-A00E-5AB36C2C8A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B7C4717-28AC-49F0-A00E-5AB36C2C8A67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
