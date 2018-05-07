@@ -9,24 +9,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ControlSimple {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// ButtonWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
+    public partial class ButtonWindow : Window {
+        public ButtonWindow() {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            new BoradSimpleWindow().ShowDialog();
+        void OnClick5(object sender, RoutedEventArgs e) {
+            btn6.FontSize = 16;
+            btn6.Content = "This is my favorite photo.";
+            btn6.Background = Brushes.Red;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e) {
-            new ButtonWindow().ShowDialog();
-        }
     }
 }
