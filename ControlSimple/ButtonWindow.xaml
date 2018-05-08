@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="ButtonWindow" Height="450" Width="800">
     <Grid>
-        <Button Name="btn5" Width="50" Height="30" Click="OnClick5">
+        <Button Name="btn5" Click="OnClick5" Margin="371,194,280,188">
             <Image ></Image>
         </Button>
-        <Button Name="btn6" Width="50" Height="30" BorderBrush="Black" Margin="218,158,524,231">Click the picture.</Button>
+        <Button Name="btn6" Height="30" BorderBrush="Black" Margin="218,158,461,231">Click the picture.</Button>
     </Grid>
 </Window>

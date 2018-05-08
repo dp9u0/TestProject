@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDemo", "AsyncDemo\AsyncDemo.csproj", "{4C30D9DA-6A23-4CB4-94E9-681AEA6231EE}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VarianceDemo", "VarianceDemo\VarianceDemo.csproj", "{E0FC9726-2CF4-47F2-960F-CC94389307D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateEvent", "DelegateEvent\DelegateEvent.csproj", "{E18FD968-11D5-4A8D-B3F2-CD5F2885DD64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic", "Dynamic\Dynamic.csproj", "{56D726D3-A964-4014-B3DD-57DD42E9DF75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +47,15 @@ Global
 		{E18FD968-11D5-4A8D-B3F2-CD5F2885DD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E18FD968-11D5-4A8D-B3F2-CD5F2885DD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E18FD968-11D5-4A8D-B3F2-CD5F2885DD64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D726D3-A964-4014-B3DD-57DD42E9DF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D726D3-A964-4014-B3DD-57DD42E9DF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D726D3-A964-4014-B3DD-57DD42E9DF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D726D3-A964-4014-B3DD-57DD42E9DF75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F817721E-B80E-463A-9473-4414211F4CBE}
 	EndGlobalSection
 EndGlobal
