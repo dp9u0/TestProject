@@ -15,23 +15,38 @@ namespace Binding {
 
         private string _personName;
 
+        public Person(string s) {
+            _personName = s;
+        }
+
+        public Person() :this(string.Empty){
+                
+        }
+
         public string PersonName {
             get => _personName;
             set {
-                if (string.Equals(value, PersonName))
+                if (string.Equals(value, _personName))
                     return;
                 _personName = value;
                 OnPropertyChanged("PersonName");
             }
         }
 
+        public string Name {
+            get => _personName;
+            set {
+                if (string.Equals(value, _personName))
+                    return;
+                _personName = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string info) {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) {
-                handler(this, new PropertyChangedEventArgs(info));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(info));
         }
 
     }

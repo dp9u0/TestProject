@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
-        <Button Content="Button" HorizontalAlignment="Left" Margin="126,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="247,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="SimpleBinding" HorizontalAlignment="Left" Margin="21,26,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
+        <Button Content="BindingSource" HorizontalAlignment="Left" Margin="169,26,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click_1"/>
+        <Button Content="WhenUpdates" HorizontalAlignment="Left" Margin="320,31,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click_2"/>
     </Grid>
 </Window>

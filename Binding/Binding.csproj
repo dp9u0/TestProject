@@ -58,6 +58,9 @@
     <Compile Include="SimpleBindingWindow.xaml.cs">
       <DependentUpon>SimpleBindingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WhenUpdatesWindow.xaml.cs">
+      <DependentUpon>WhenUpdatesWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="BindingSourceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +78,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SimpleBindingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WhenUpdatesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
