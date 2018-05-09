@@ -3,25 +3,28 @@
 // Create Date:  20180509 13:40
 // Description:   
 
-using System;
+#region
+
 using System.ComponentModel;
+
+#endregion
 
 namespace Binding {
 
     public class NetIncome : INotifyPropertyChanged {
-        private int totalIncome = 5000;
-        private int rent = 2000;
-        private int food = 0;
-        private int misc = 0;
-        private int savings = 0;
+
         public NetIncome() {
             savings = totalIncome - (rent + food + misc);
         }
 
+        private int totalIncome = 5000;
+        private int rent = 2000;
+        private int food;
+        private int misc;
+        private int savings;
+
         public int TotalIncome {
-            get {
-                return totalIncome;
-            }
+            get => totalIncome;
             set {
                 if (TotalIncome != value) {
                     totalIncome = value;
@@ -29,10 +32,9 @@ namespace Binding {
                 }
             }
         }
+
         public int Rent {
-            get {
-                return rent;
-            }
+            get => rent;
             set {
                 if (Rent != value) {
                     rent = value;
@@ -41,10 +43,9 @@ namespace Binding {
                 }
             }
         }
+
         public int Food {
-            get {
-                return food;
-            }
+            get => food;
             set {
                 if (Food != value) {
                     food = value;
@@ -53,10 +54,9 @@ namespace Binding {
                 }
             }
         }
+
         public int Misc {
-            get {
-                return misc;
-            }
+            get => misc;
             set {
                 if (Misc != value) {
                     misc = value;
@@ -65,10 +65,9 @@ namespace Binding {
                 }
             }
         }
+
         public int Savings {
-            get {
-                return savings;
-            }
+            get => savings;
             set {
                 if (Savings != value) {
                     savings = value;
@@ -78,17 +77,22 @@ namespace Binding {
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private void UpdateSavings() {
             Savings = TotalIncome - (Rent + Misc + Food);
-            if (Savings < 0) { } else if (Savings >= 0) { }
+            if (Savings < 0) {
+            } else if (Savings >= 0) {
+            }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(String info) {
+
+        private void OnPropertyChanged(string info) {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) {
                 handler(this, new PropertyChangedEventArgs(info));
             }
         }
+
     }
 
 }

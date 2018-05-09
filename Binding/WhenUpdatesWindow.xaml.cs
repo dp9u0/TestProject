@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// FileName:  WhenUpdatesWindow.xaml.cs
+// Author:  guodp <guodp9u0@gmail.com>
+// Create Date:  20180509 13:52
+// Description:   
+
+#region
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+#endregion
 
 namespace Binding {
+
     /// <summary>
-    /// WhenUpdatesWindow.xaml 的交互逻辑
+    ///     WhenUpdatesWindow.xaml 的交互逻辑
     /// </summary>
     public partial class WhenUpdatesWindow : Window {
+
         public WhenUpdatesWindow() {
             InitializeComponent();
         }
@@ -24,5 +26,7 @@ namespace Binding {
             BindingExpression be = ItemNameTextBox.GetBindingExpression(TextBox.TextProperty);
             be?.UpdateSource();
         }
+
     }
+
 }

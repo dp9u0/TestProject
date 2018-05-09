@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="SimpleBindingWindow" Height="450" Width="800">
     <Window.Resources>
-        <local:Person x:Key="MyDataSource" PersonName="Joe"/>
+        <local:Person x:Key="MyDataSource" PersonName="Joe" />
         <Style TargetType="{x:Type Label}">
-            <Setter Property="DockPanel.Dock" Value="Top"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="FontSize" Value="12" />
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="25"/>
-            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
         </Style>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="25"/>
-            <Setter Property="DockPanel.Dock" Value="Top"/>
-            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="Padding" Value="3" />
         </Style>
     </Window.Resources>
     <Border Margin="5" BorderBrush="Aqua" BorderThickness="1" Padding="8" CornerRadius="3">
@@ -30,12 +30,12 @@
             <TextBox>
                 <TextBox.Text>
                     <Binding Source="{StaticResource MyDataSource}" Path="PersonName"
-                             UpdateSourceTrigger="PropertyChanged"/>
+                             UpdateSourceTrigger="PropertyChanged" />
                 </TextBox.Text>
             </TextBox>
 
             <Label>The name you entered:</Label>
-            <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=PersonName}"/>
+            <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=PersonName}" />
         </DockPanel>
     </Border>
 </Window>

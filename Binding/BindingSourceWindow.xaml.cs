@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// FileName:  BindingSourceWindow.xaml.cs
+// Author:  guodp <guodp9u0@gmail.com>
+// Create Date:  20180509 13:49
+// Description:   
+
+#region
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+#endregion
 
 namespace Binding {
+
     /// <summary>
-    /// BindingSourceWindow.xaml 的交互逻辑
+    ///     BindingSourceWindow.xaml 的交互逻辑
     /// </summary>
     public partial class BindingSourceWindow : Window {
+
         public BindingSourceWindow() {
             InitializeComponent();
         }
+
     }
+
 }

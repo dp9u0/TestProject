@@ -13,15 +13,14 @@ namespace Binding {
 
     public class Person : INotifyPropertyChanged {
 
-        private string _personName;
-
         public Person(string s) {
             _personName = s;
         }
 
-        public Person() :this(string.Empty){
-                
+        public Person() : this(string.Empty) {
         }
+
+        private string _personName;
 
         public string PersonName {
             get => _personName;

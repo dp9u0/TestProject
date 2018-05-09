@@ -8,16 +8,16 @@
         Title="BindingSourceWindow" Height="450" Width="800">
     <Grid>
         <Grid.Resources>
-            <local:NetIncome x:Key="IncomeDataSource"/>
+            <local:NetIncome x:Key="IncomeDataSource" />
             <Style TargetType="{x:Type TextBlock}">
-                <Setter Property="Padding" Value="8"/>
+                <Setter Property="Padding" Value="8" />
             </Style>
             <Style TargetType="{x:Type TextBox}">
-                <Setter Property="Margin" Value="0,6,0,0"/>
+                <Setter Property="Margin" Value="0,6,0,0" />
             </Style>
         </Grid.Resources>
         <Grid.DataContext>
-            <Binding Source="{StaticResource IncomeDataSource}"/>
+            <Binding Source="{StaticResource IncomeDataSource}" />
         </Grid.DataContext>
     </Grid>
 </Window>

@@ -14,48 +14,49 @@
             </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>
         <Style TargetType="{x:Type Label}">
-            <Setter Property="DockPanel.Dock" Value="Top"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="DockPanel.Dock" Value="Top" />
+            <Setter Property="FontSize" Value="12" />
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="25"/>
-            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
         </Style>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="25"/>
-            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="DockPanel.Dock" Value="Top" />
         </Style>
     </Window.Resources>
 
     <Border Margin="25" BorderBrush="Aqua" BorderThickness="3" Padding="8">
-        <DockPanel Margin="260,123,55,39">
+        <DockPanel Margin="0,0,0,0">
             <Label>Enter a Name:</Label>
             <TextBox>
                 <TextBox.Text>
                     <Binding Source="{StaticResource MyDataSource}" Path="Name"
-                             UpdateSourceTrigger="PropertyChanged"/>
+                             UpdateSourceTrigger="PropertyChanged" />
                 </TextBox.Text>
             </TextBox>
 
             <TextBox>
                 <TextBox.Text>
                     <Binding Source="{StaticResource MyDataSource}" Path="Name"
-                             UpdateSourceTrigger="LostFocus"/>
+                             UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
             </TextBox>
 
             <TextBox Name="ItemNameTextBox">
                 <TextBox.Text>
                     <Binding Source="{StaticResource MyDataSource}" Path="Name"
-                             UpdateSourceTrigger="Explicit"/>
+                             UpdateSourceTrigger="Explicit" />
                 </TextBox.Text>
             </TextBox>
 
             <Label>The name you entered:</Label>
-            <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=Name}"/>
-            <Button Content="Update" Width="75" RenderTransformOrigin="1.003,0.301" Click="Button_Click"/>
+            <TextBlock Text="{Binding Source={StaticResource MyDataSource}, Path=Name}" />
+            <Button Content="Update" Width="130" RenderTransformOrigin="1.003,0.301" Click="Button_Click"
+                    Margin="0,160,0,0" />
         </DockPanel>
     </Border>
 </Window>
