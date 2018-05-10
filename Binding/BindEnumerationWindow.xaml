@@ -1,0 +1,31 @@
+﻿<Window x:Class="Binding.BindEnumerationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Binding"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="BindEnumerationWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}"
+                            x:Key="AlignmentValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="HorizontalAlignment" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
+    <Border Margin="10" BorderBrush="Aqua"
+            BorderThickness="3" Padding="8">
+        <StackPanel Width="300">
+            <TextBlock>Choose the HorizontalAlignment value of the Button:</TextBlock>
+            <ListBox Name="MyComboBox" SelectedIndex="0" Margin="8"
+                     ItemsSource="{Binding Source={StaticResource AlignmentValues}}"/>
+            <Button Content="Click Me!"
+                    HorizontalAlignment="{Binding ElementName=MyComboBox,
+                                            Path=SelectedItem}"/>
+        </StackPanel>
+    </Border>
+</Window>
