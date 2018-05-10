@@ -39,6 +39,10 @@ namespace Binding {
         private void Button_Click_4(object sender, RoutedEventArgs e) {
             new BindCollectionWindow().ShowDialog();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e) {
+            new BindEnumerationWindow().ShowDialog();
+        }
     }
 
 }
