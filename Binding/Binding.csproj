@@ -52,6 +52,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindingModeWindow.xaml.cs">
+      <DependentUpon>BindingModeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BindingSourceWindow.xaml.cs">
       <DependentUpon>BindingSourceWindow.xaml</DependentUpon>
     </Compile>
@@ -61,6 +64,10 @@
     <Compile Include="WhenUpdatesWindow.xaml.cs">
       <DependentUpon>WhenUpdatesWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="BindingModeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BindingSourceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

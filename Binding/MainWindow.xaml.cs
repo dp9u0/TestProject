@@ -32,6 +32,9 @@ namespace Binding {
             new WhenUpdatesWindow().ShowDialog();
         }
 
+        private void Button_Click_3(object sender, RoutedEventArgs e) {
+            new BindingModeWindow().ShowDialog();
+        }
     }
 
 }
