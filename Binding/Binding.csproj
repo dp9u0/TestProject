@@ -55,6 +55,9 @@
     <Compile Include="BindCollectionWindow.xaml.cs">
       <DependentUpon>BindCollectionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BindEnumerationWindow.xaml.cs">
+      <DependentUpon>BindEnumerationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BindingModeWindow.xaml.cs">
       <DependentUpon>BindingModeWindow.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,10 @@
       <DependentUpon>WhenUpdatesWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="BindCollectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BindEnumerationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
