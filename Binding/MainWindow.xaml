@@ -14,5 +14,6 @@
         <Button Content="WhenUpdates" HorizontalAlignment="Left" Margin="295,26,0,0" VerticalAlignment="Top"
                 Width="132" Click="Button_Click_2" />
         <Button Content="BindingMode" HorizontalAlignment="Left" Margin="466,26,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.312,-0.334" Click="Button_Click_3"/>
+        <Button Content="BindCollection" HorizontalAlignment="Left" Margin="37,82,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click_4"/>
     </Grid>
 </Window>

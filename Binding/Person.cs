@@ -21,6 +21,9 @@ namespace Binding {
         }
 
         private string _personName;
+        private string _homeTown;
+        private string _lastName;
+        private string _firstName;
 
         public string PersonName {
             get => _personName;
@@ -42,10 +45,39 @@ namespace Binding {
             }
         }
 
+
+        public string FirstName {
+            get => _firstName;
+            set {
+                _firstName = value;
+                OnPropertyChanged("FirstName");
+            }
+        }
+
+        public string LastName {
+            get => _lastName;
+            set {
+                _lastName = value;
+                OnPropertyChanged("LastName");
+            }
+        }
+
+        public string HomeTown {
+            get => _homeTown;
+            set {
+                _homeTown = value;
+                OnPropertyChanged("HomeTown");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string info) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(info));
+        }
+
+        public override string ToString() {
+            return _firstName;
         }
 
     }
