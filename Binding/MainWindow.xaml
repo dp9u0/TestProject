@@ -16,5 +16,6 @@
         <Button Content="BindingMode" HorizontalAlignment="Left" Margin="466,26,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.312,-0.334" Click="Button_Click_3"/>
         <Button Content="BindCollection" HorizontalAlignment="Left" Margin="21,81,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click_4"/>
         <Button Content="BindEnumeration" HorizontalAlignment="Left" Margin="183,81,0,0" VerticalAlignment="Top" Width="134" Click="Button_Click_5"/>
+        <Button Content="BindControl" HorizontalAlignment="Left" Margin="352,81,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
     </Grid>
 </Window>

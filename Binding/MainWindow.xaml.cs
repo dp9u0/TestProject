@@ -43,6 +43,10 @@ namespace Binding {
         private void Button_Click_5(object sender, RoutedEventArgs e) {
             new BindEnumerationWindow().ShowDialog();
         }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e) {
+            new BindControlWindow().ShowDialog();
+        }
     }
 
 }
