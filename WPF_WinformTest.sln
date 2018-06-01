@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlSimple", "ControlSim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binding", "Binding\Binding.csproj", "{AD9DC49B-3790-4E00-92A0-2B226F941FCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyChangedSample", "PropertyChangedSample\PropertyChangedSample.csproj", "{58766C5C-3EDF-470A-9931-A36856985019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DispatcherHang", "DispatcherHang\DispatcherHang.csproj", "{A77ABDEC-E62C-45B0-A201-BA6910F960D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{AD9DC49B-3790-4E00-92A0-2B226F941FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9DC49B-3790-4E00-92A0-2B226F941FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9DC49B-3790-4E00-92A0-2B226F941FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58766C5C-3EDF-470A-9931-A36856985019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58766C5C-3EDF-470A-9931-A36856985019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58766C5C-3EDF-470A-9931-A36856985019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58766C5C-3EDF-470A-9931-A36856985019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A77ABDEC-E62C-45B0-A201-BA6910F960D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A77ABDEC-E62C-45B0-A201-BA6910F960D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A77ABDEC-E62C-45B0-A201-BA6910F960D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A77ABDEC-E62C-45B0-A201-BA6910F960D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
