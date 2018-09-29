@@ -14,6 +14,10 @@ namespace Linq {
         private static IEnumerable<MyModel> enumarable = null;
         private static IQueryable<MyModel> queryable = null;
 
+        static Test() {
+            queryable = new EnumerableQuery<MyModel>(new List<MyModel>());
+        }
+
         public static void Run() {
             Console.WriteLine("---------------------------");
             Test005();
@@ -46,7 +50,7 @@ namespace Linq {
         public static void Test005() {
             ParameterExpression parameterExpression = Expression.Parameter(typeof(MyModel), "t");
             var indexExpression = Expression.Property(parameterExpression, "MyProperty");
-            var lambda = Expression.Lambda<Func<MyModel, string>>(indexExpression);
+            var lambda = Expression.Lambda<Func<MyModel, string>>(indexExpression, parameterExpression);
             var result = queryable.Select(lambda);
         }
 

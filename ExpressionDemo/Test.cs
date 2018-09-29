@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -12,28 +13,28 @@ using System.Reflection.Emit;
 namespace ExpressionDemo {
     public static class Test {
         public static void Run() {
-            Console.WriteLine("------------------------------");
-            Test001();
-            Console.WriteLine("------------------------------");
-            Test002();
-            Console.WriteLine("------------------------------");
-            Test003();
-            Console.WriteLine("------------------------------");
-            Test004();
-            Console.WriteLine("------------------------------");
-            Test005();
-            Console.WriteLine("------------------------------");
-            Test006();
-            Console.WriteLine("------------------------------");
-            Test007();
-            Console.WriteLine("------------------------------");
-            Test008();
-            Console.WriteLine("------------------------------");
-            Test009();
-            Console.WriteLine("------------------------------");
-            Test010();
-            Console.WriteLine("==============================");
-            Console.ReadLine();
+            //Console.WriteLine("------------------------------");
+            //Test001();
+            //Console.WriteLine("------------------------------");
+            //Test002();
+            //Console.WriteLine("------------------------------");
+            //Test003();
+            //Console.WriteLine("------------------------------");
+            //Test004();
+            //Console.WriteLine("------------------------------");
+            //Test005();
+            //Console.WriteLine("------------------------------");
+            //Test006();
+            //Console.WriteLine("------------------------------");
+            //Test007();
+            //Console.WriteLine("------------------------------");
+            //Test008();
+            //Console.WriteLine("------------------------------");
+            //Test009();
+            //Console.WriteLine("------------------------------");
+            //Test010();
+            //Console.WriteLine("==============================");
+            //Console.ReadLine();
         }
 
         [Description("")]
@@ -232,5 +233,13 @@ namespace ExpressionDemo {
             typeBuilder.CreateType();
             assemblyBuilder.Save(assemblyName + ".dll");
         }
+    }
+
+    public class MyModel {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public string MyProperty { get; set; }
     }
 }

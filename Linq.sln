@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionDemo", "ExpressionDemo\ExpressionDemo.csproj", "{788F8ADE-306F-47D2-BACA-1887B1820B7D}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnblogsLinqProvider", "CnblogsLinqProvider\CnblogsLinqProvider.csproj", "{D499D900-8527-4DB5-A648-553303832F06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqTocnblogsTest", "LinqTocnblogsTest\LinqTocnblogsTest.csproj", "{8097DEE4-7705-423B-B608-523CB7FBF4EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proj", "proj", "{A460C6BD-4EDF-46DC-9F68-E2C0DEB3ADB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AC64F02-14CC-41A3-B562-6AB08A3AFD79} = {A460C6BD-4EDF-46DC-9F68-E2C0DEB3ADB5}
+		{D499D900-8527-4DB5-A648-553303832F06} = {A460C6BD-4EDF-46DC-9F68-E2C0DEB3ADB5}
+		{8097DEE4-7705-423B-B608-523CB7FBF4EA} = {A460C6BD-4EDF-46DC-9F68-E2C0DEB3ADB5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17A01388-91F0-4367-8ADA-A59EB3CDAC1B}
 	EndGlobalSection
 EndGlobal
